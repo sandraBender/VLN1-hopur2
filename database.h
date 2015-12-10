@@ -20,8 +20,8 @@ public:
     bool getDatabase();
     vector<Scientist> createSciVec(QString command);
     vector<Computer> createCompVec(QString command);
-    void editData(string name, string yob, string yod, string gender);
-    void editDataComp(string name, string buildYear, string builtOrNot, string type);
+    void editData(QString name, QString yob, QString yod, QString gender);
+    void editDataComp(QString name, QString buildYear, QString builtOrNot, QString type);
     vector<Scientist> sortSci(char number);
     vector<Computer> sortCom(char number);
     vector<Scientist> searchSci(string searchStr ,char number);
@@ -31,6 +31,8 @@ public:
     void addDeleteLink(string scientist, string computer, char number);
     void linkChoice();
     vector<string> getRelations();
+private:
+    QSqlQuery query;
 };
 
 #endif // DATABASE_H

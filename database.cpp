@@ -53,20 +53,17 @@ vector<Computer> database::createCompVec(QString command)
 }
 
 //Function to add entries to Scientists table
-void database::editData(string name, string yob, string yod, string gender)
+void database::editData(QString name, QString yob, QString yod, QString gender)
 {
-    QSqlQuery query;
-    string command1 = "INSERT INTO Scientists (Name, YearOfBirth, YearOfDeath, Gender) VALUES ('" + name + "'," + yob + "," + yod + ",'" + gender + "')";
-    QString command = QString::fromStdString(command1);
+
+    QString command = "INSERT INTO Scientists (Name, YearOfBirth, YearOfDeath, Gender) VALUES ('" + name + "'," + yob + "," + yod + ",'" + gender + "')";
     query.exec(command);
 }
 
 //Function to add entries to Computers table
-void database::editDataComp(string name, string buildYear, string builtOrNot, string type)
+void database::editDataComp(QString name, QString buildYear, QString builtOrNot, QString type)
 {
-    QSqlQuery query;
-    string command1 = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "','" + buildYear + "','" + builtOrNot + "','" + type + "')";
-    QString command = QString::fromStdString(command1);
+    QString command = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "','" + buildYear + "','" + builtOrNot + "','" + type + "')";
     query.exec(command);
 }
 
@@ -185,7 +182,7 @@ vector<Computer> database::searchCom(string searchStr ,char number){
 
 //Function to delete from Scientists
 void database::deleteSC(char number, string name){
-    QSqlQuery query;
+
     QString command;
     string temp;
     if (number == '1'){
@@ -211,7 +208,7 @@ bool database::closeDatabase()
 //Function to add and remove relationship between Scientist and Computer
 void database::addDeleteLink(string scientist, string computer, char number) //Add = 0, delete = 1
 {
-    QSqlQuery query;
+
 
     query.prepare("SELECT ID FROM Scientists WHERE name LIKE '%' ||:scientist|| '%'");
     query.bindValue(":scientist", QString::fromStdString(scientist));

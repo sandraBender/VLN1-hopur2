@@ -13,12 +13,18 @@ SOURCES += main.cpp\
     computer.cpp \
     scientist.cpp \
     service.cpp \
-    database.cpp
+    database.cpp \
+    sciwindow.cpp \
+    addsci.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
     scientist.h \
     service.h \
-    database.h
+    database.h \
+    sciwindow.h \
+    addsci.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    sciwindow.ui \
+    addsci.ui

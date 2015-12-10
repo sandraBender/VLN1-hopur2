@@ -5,38 +5,34 @@ Service::Service()
 
 }
 //adds scientists to the list
-void Service::addScientist(string name, string yob, string yod, string gender)
-{
-    database data;
+void Service::addScientist(QString name, QString yob, QString yod, QString gender)
+{   
     data.editData(name, yob, yod, gender);
 }
-void Service::addComputer(string name, string buildYear, string builtOrNot, string type)
+void Service::addComputer(QString name, QString buildYear, QString builtOrNot, QString type)
 {
-    database data;
-    data.editDataComp(name, buildYear, builtOrNot, type);
+        data.editDataComp(name, buildYear, builtOrNot, type);
 }
 
 // sorts the list
 vector<Computer> Service::sortCom(char number)
 {
-    database data;
     vector<Computer> vec = data.sortCom(number);
     return vec;
 }
 
 vector<Scientist> Service::sortSci(char number)
 {
-    database data;
     vector<Scientist> vec = data.sortSci(number);
     return vec;
 }
 vector<Computer> Service::searchCom(string searchStr ,char number){
-    database data;
+
     vector<Computer> vec = data.searchCom(searchStr, number);
     return vec;
 }
 vector<Scientist> Service::searchSci(string searchStr ,char number){
-    database data;
+
     vector<Scientist> vec = data.searchSci(searchStr, number);
     return vec;
 }
@@ -44,20 +40,20 @@ vector<Scientist> Service::searchSci(string searchStr ,char number){
 // delete scientist from the list
 void Service::deleteData(char number, string name)
 {
-    database data;
+
     data.deleteSC(number, name);
 }
 
 bool Service::connect()
 {
-    database data;
+
     return data.getDatabase();
 
 
 }
 bool Service::disconnect()
 {
-    database data;
+
     return data.closeDatabase();
 }
 
@@ -76,7 +72,7 @@ void Service::addDeleteLink(string scientist, string computer, char number)
 
 vector<string> Service::getRelations()
 {
-    database data;
+
     vector<string> vec;
     vec = data.getRelations();
     return vec;
