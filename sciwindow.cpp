@@ -8,6 +8,7 @@ SciWindow::SciWindow(QWidget *parent) :
     ui(new Ui::SciWindow)
 {
     ui->setupUi(this);
+    displayAllScientists("name");
 }
 
 SciWindow::~SciWindow()

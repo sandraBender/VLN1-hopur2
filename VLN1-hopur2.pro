@@ -28,3 +28,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     sciwindow.ui \
     addsci.ui
+
+DISTFILES += \
+    ../build-VLN1-hopur2-Desktop_Qt_5_5_1_clang_64bit-Debug/Database.sqlite
