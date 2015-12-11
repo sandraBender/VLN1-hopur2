@@ -6,6 +6,7 @@ AddComp::AddComp(QWidget *parent) :
     ui(new Ui::AddComp)
 {
     ui->setupUi(this);
+    ui->button_built->setAutoExclusive(true);
 }
 
 AddComp::~AddComp()

@@ -86,7 +86,11 @@
        </widget>
       </item>
       <item alignment="Qt::AlignRight">
-       <widget class="QLineEdit" name="line_yod"/>
+       <widget class="QLineEdit" name="line_yod">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -152,17 +156,17 @@
  <resources/>
  <connections>
   <connection>
-   <sender>button_alive</sender>
+   <sender>button_dead</sender>
    <signal>toggled(bool)</signal>
    <receiver>line_yod</receiver>
-   <slot>setDisabled(bool)</slot>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>197</x>
-     <y>88</y>
+     <x>213</x>
+     <y>110</y>
     </hint>
     <hint type="destinationlabel">
-     <x>127</x>
+     <x>187</x>
      <y>137</y>
     </hint>
    </hints>

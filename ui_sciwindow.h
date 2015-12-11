@@ -65,9 +65,13 @@ public:
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
         table_scientist->setEnabled(true);
         table_scientist->setMouseTracking(false);
+        table_scientist->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         table_scientist->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_scientist->setSortingEnabled(true);
+        table_scientist->horizontalHeader()->setCascadingSectionResizes(false);
+        table_scientist->verticalHeader()->setVisible(false);
+        table_scientist->verticalHeader()->setCascadingSectionResizes(false);
 
         verticalLayout->addWidget(table_scientist);
 

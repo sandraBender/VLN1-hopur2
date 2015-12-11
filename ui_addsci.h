@@ -124,6 +124,7 @@ public:
 
         line_yod = new QLineEdit(layoutWidget);
         line_yod->setObjectName(QStringLiteral("line_yod"));
+        line_yod->setEnabled(false);
 
         horizontalLayout_13->addWidget(line_yod, 0, Qt::AlignRight);
 
@@ -166,7 +167,7 @@ public:
 
 
         retranslateUi(AddSci);
-        QObject::connect(button_alive, SIGNAL(toggled(bool)), line_yod, SLOT(setDisabled(bool)));
+        QObject::connect(button_dead, SIGNAL(toggled(bool)), line_yod, SLOT(setEnabled(bool)));
 
         QMetaObject::connectSlotsByName(AddSci);
     } // setupUi

@@ -31,7 +31,7 @@ class Ui_AddComp
 public:
     QPushButton *button_add;
     QPushButton *button_close;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_name;
@@ -58,20 +58,20 @@ public:
         button_close = new QPushButton(AddComp);
         button_close->setObjectName(QStringLiteral("button_close"));
         button_close->setGeometry(QRect(150, 200, 113, 32));
-        widget = new QWidget(AddComp);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(30, 30, 198, 145));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(AddComp);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 30, 198, 145));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        label_name = new QLabel(widget);
+        label_name = new QLabel(layoutWidget);
         label_name->setObjectName(QStringLiteral("label_name"));
 
         horizontalLayout->addWidget(label_name);
 
-        line_name = new QLineEdit(widget);
+        line_name = new QLineEdit(layoutWidget);
         line_name->setObjectName(QStringLiteral("line_name"));
 
         horizontalLayout->addWidget(line_name);
@@ -83,12 +83,12 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        button_built = new QRadioButton(widget);
+        button_built = new QRadioButton(layoutWidget);
         button_built->setObjectName(QStringLiteral("button_built"));
 
         verticalLayout->addWidget(button_built);
 
-        button_notbuilt = new QRadioButton(widget);
+        button_notbuilt = new QRadioButton(layoutWidget);
         button_notbuilt->setObjectName(QStringLiteral("button_notbuilt"));
 
         verticalLayout->addWidget(button_notbuilt);
@@ -101,13 +101,14 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        lebel_buildyear = new QLabel(widget);
+        lebel_buildyear = new QLabel(layoutWidget);
         lebel_buildyear->setObjectName(QStringLiteral("lebel_buildyear"));
 
         horizontalLayout_3->addWidget(lebel_buildyear);
 
-        line_build_year = new QLineEdit(widget);
+        line_build_year = new QLineEdit(layoutWidget);
         line_build_year->setObjectName(QStringLiteral("line_build_year"));
+        line_build_year->setEnabled(false);
 
         horizontalLayout_3->addWidget(line_build_year);
 
@@ -116,12 +117,12 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        label_type = new QLabel(widget);
+        label_type = new QLabel(layoutWidget);
         label_type->setObjectName(QStringLiteral("label_type"));
 
         horizontalLayout_4->addWidget(label_type);
 
-        combo_type = new QComboBox(widget);
+        combo_type = new QComboBox(layoutWidget);
         combo_type->setObjectName(QStringLiteral("combo_type"));
 
         horizontalLayout_4->addWidget(combo_type);
@@ -131,6 +132,7 @@ public:
 
 
         retranslateUi(AddComp);
+        QObject::connect(button_built, SIGNAL(toggled(bool)), line_build_year, SLOT(setEnabled(bool)));
 
         QMetaObject::connectSlotsByName(AddComp);
     } // setupUi
