@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "addsci.h"
 #include "service.h"
+#include <vector>
 
 namespace Ui {
 class SciWindow;
@@ -29,6 +30,7 @@ private:
     Ui::SciWindow *ui;
     AddSci addScientist;
     Service serv;
+    vector<Scientist>DisplayCurrentScientist;
 };
 
 #endif // SCIWINDOW_H

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
-    <height>446</height>
+    <width>458</width>
+    <height>474</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,28 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QListWidget" name="list_scientists"/>
+        <widget class="QTableWidget" name="table_scientist">
+         <column>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Year of Birth</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Year of death</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Gender</string>
+          </property>
+         </column>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton">

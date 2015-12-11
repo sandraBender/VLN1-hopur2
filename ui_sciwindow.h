@@ -17,8 +17,8 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -30,7 +30,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QLineEdit *filter_scientists;
     QVBoxLayout *verticalLayout;
-    QListWidget *list_scientists;
+    QTableWidget *table_scientist;
     QPushButton *pushButton;
     QPushButton *button_addsci;
 
@@ -38,7 +38,7 @@ public:
     {
         if (SciWindow->objectName().isEmpty())
             SciWindow->setObjectName(QStringLiteral("SciWindow"));
-        SciWindow->resize(346, 446);
+        SciWindow->resize(458, 474);
         horizontalLayout = new QHBoxLayout(SciWindow);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
@@ -50,10 +50,20 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        list_scientists = new QListWidget(SciWindow);
-        list_scientists->setObjectName(QStringLiteral("list_scientists"));
+        table_scientist = new QTableWidget(SciWindow);
+        if (table_scientist->columnCount() < 4)
+            table_scientist->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        table_scientist->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        table_scientist->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        table_scientist->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        table_scientist->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        table_scientist->setObjectName(QStringLiteral("table_scientist"));
 
-        verticalLayout->addWidget(list_scientists);
+        verticalLayout->addWidget(table_scientist);
 
         pushButton = new QPushButton(SciWindow);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -81,6 +91,14 @@ public:
     {
         SciWindow->setWindowTitle(QApplication::translate("SciWindow", "Dialog", 0));
         filter_scientists->setPlaceholderText(QApplication::translate("SciWindow", "Filter scientists..", 0));
+        QTableWidgetItem *___qtablewidgetitem = table_scientist->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("SciWindow", "Name", 0));
+        QTableWidgetItem *___qtablewidgetitem1 = table_scientist->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("SciWindow", "Year of Birth", 0));
+        QTableWidgetItem *___qtablewidgetitem2 = table_scientist->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("SciWindow", "Year of death", 0));
+        QTableWidgetItem *___qtablewidgetitem3 = table_scientist->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QApplication::translate("SciWindow", "Gender", 0));
         pushButton->setText(QApplication::translate("SciWindow", "Remove selected scientist", 0));
         button_addsci->setText(QApplication::translate("SciWindow", "Add New", 0));
     } // retranslateUi

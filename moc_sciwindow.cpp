@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SciWindow_t {
-    QByteArrayData data[5];
-    char stringdata0[74];
+    QByteArrayData data[4];
+    char stringdata0[69];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,12 +32,11 @@ static const qt_meta_stringdata_SciWindow_t qt_meta_stringdata_SciWindow = {
 QT_MOC_LITERAL(0, 0, 9), // "SciWindow"
 QT_MOC_LITERAL(1, 10, 24), // "on_button_addsci_clicked"
 QT_MOC_LITERAL(2, 35, 0), // ""
-QT_MOC_LITERAL(3, 36, 32), // "on_filter_scientists_textChanged"
-QT_MOC_LITERAL(4, 69, 4) // "arg1"
+QT_MOC_LITERAL(3, 36, 32) // "on_filter_scientists_textChanged"
 
     },
     "SciWindow\0on_button_addsci_clicked\0\0"
-    "on_filter_scientists_textChanged\0arg1"
+    "on_filter_scientists_textChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,11 +55,11 @@ static const uint qt_meta_data_SciWindow[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   24,    2, 0x08 /* Private */,
-       3,    1,   25,    2, 0x08 /* Private */,
+       3,    0,   25,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -72,10 +71,11 @@ void SciWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_button_addsci_clicked(); break;
-        case 1: _t->on_filter_scientists_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 1: _t->on_filter_scientists_textChanged(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject SciWindow::staticMetaObject = {

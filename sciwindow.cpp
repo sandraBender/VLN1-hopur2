@@ -38,8 +38,22 @@ void SciWindow::displayAllScientists(string searchstr)
 
 void SciWindow::displayScientists(std::vector<Scientist> scivec)
 {
-    ui->list_scientists->clear();
-    for(unsigned int i = 0; i < scivec.size(); i++){
-        ui->list_scientists->addItem(QString::fromStdString(scivec[i].getName()));
+    ui->table_scientist->clearContents();
+    ui->table_scientist->setRowCount(scivec.size());
+
+    for(unsigned int row = 0; row < scivec.size(); row++){
+        Scientist currentScientist = scivec.at(row);
+
+        QString name = QString::fromStdString(currentScientist.getName());
+        QString yob = QString::number(currentScientist.getYob());
+        QString yod = QString::number(currentScientist.getYod());
+        QString gender = QString::fromStdString(currentScientist.getGender());
+
+        ui->table_scientist->setItem(row, 0, new QTableWidgetItem(name));
+        ui->table_scientist->setItem(row, 1, new QTableWidgetItem(yob));
+        ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yod));
+        ui->table_scientist->setItem(row, 3, new QTableWidgetItem(gender));
+
     }
+    DisplayCurrentScientist = scivec;
 }
