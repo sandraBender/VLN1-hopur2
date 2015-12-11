@@ -21,7 +21,7 @@ private slots:
 
     void on_button_addsci_clicked();
 
-    void on_filter_scientists_textChanged(const QString &arg1);
+    void on_filter_scientists_textChanged();
 
 private:
     void displayAllScientists(string searchstr);

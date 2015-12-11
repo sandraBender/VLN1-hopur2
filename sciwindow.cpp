@@ -22,7 +22,7 @@ void SciWindow::on_button_addsci_clicked()
 }
 
 
-void SciWindow::on_filter_scientists_textChanged(const QString &arg1)
+void SciWindow::on_filter_scientists_textChanged()
 {
     string searchStr = ui->filter_scientists->text().toStdString();
     displayAllScientists(searchStr);

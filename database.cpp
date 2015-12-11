@@ -10,8 +10,11 @@ bool database::getDatabase()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "/users/sandrabender/build-VLN1-hopur2-Desktop_QT_5_5_1_clang_64bit-Debug/database.sqlite";
+    QString dbName = "Database.sqlite";
         db.setDatabaseName(dbName);
+
+        //cout << "DB opening cerimony commencing! " << endl;
+        //To confirm when DB opening happens.
 
     return db.open();
 }
