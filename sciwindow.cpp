@@ -57,5 +57,21 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(gender));
 
     }
-    DisplayCurrentScientist = scivec;
+    currentlyDisplayed = scivec;
+}
+
+void SciWindow::on_table_scientist_clicked(const QModelIndex &index)
+{
+    ui->button_remove_student->setEnabled(true);
+}
+
+void SciWindow::on_button_remove_student_clicked()
+{
+   QString sciName = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
+
+   serv.deleteData('1', sciName);
+
+   displayAllScientists("");
+
+
 }

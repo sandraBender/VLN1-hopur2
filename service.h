@@ -21,7 +21,7 @@ public:
     vector<Scientist> sortSci(char number);
     vector<Scientist> searchSci(string searchStr, char number);
     vector<Computer> searchCom(string searchStr, char number);
-    void deleteData(char number, string name);
+    void deleteData(char number, QString name);
     bool connect();
     bool disconnect();
     void addDeleteLink(string scientist, string computer, char number);

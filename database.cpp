@@ -184,18 +184,15 @@ vector<Computer> database::searchCom(string searchStr ,char number){
 }
 
 //Function to delete from Scientists
-void database::deleteSC(char number, string name){
+void database::deleteSC(char number, QString name){
 
     QString command;
-    string temp;
     if (number == '1'){
-        temp = "DELETE FROM Scientists WHERE Name = '" + name + "'";
-        command = QString::fromStdString(temp);
+        command = "DELETE FROM Scientists WHERE Name = '" + name + "'";
         query.exec(command);
     }
     else    if (number == '2'){
-        temp = "DELETE FROM Computers WHERE Name = '" + name + "'";
-        command = QString::fromStdString(temp);
+        command = "DELETE FROM Computers WHERE Name = '" + name + "'";
         query.exec(command);
     }
 }

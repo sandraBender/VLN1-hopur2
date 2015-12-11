@@ -38,7 +38,7 @@ vector<Scientist> Service::searchSci(string searchStr ,char number){
 }
 
 // delete scientist from the list
-void Service::deleteData(char number, string name)
+void Service::deleteData(char number, QString name)
 {
 
     data.deleteSC(number, name);

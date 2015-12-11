@@ -24,13 +24,17 @@ private slots:
 
     void on_filter_scientists_textChanged();
 
+    void on_table_scientist_clicked(const QModelIndex &index);
+
+    void on_button_remove_student_clicked();
+
 private:
     void displayAllScientists(string searchstr);
     void displayScientists(std::vector<Scientist> scivec);
     Ui::SciWindow *ui;
     AddSci addScientist;
     Service serv;
-    vector<Scientist>DisplayCurrentScientist;
+    vector<Scientist> currentlyDisplayed;
 };
 
 #endif // SCIWINDOW_H

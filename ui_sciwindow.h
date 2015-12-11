@@ -31,7 +31,7 @@ public:
     QLineEdit *filter_scientists;
     QVBoxLayout *verticalLayout;
     QTableWidget *table_scientist;
-    QPushButton *pushButton;
+    QPushButton *button_remove_student;
     QPushButton *button_addsci;
 
     void setupUi(QDialog *SciWindow)
@@ -64,15 +64,17 @@ public:
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
         table_scientist->setEnabled(true);
         table_scientist->setMouseTracking(false);
+        table_scientist->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_scientist->setSortingEnabled(true);
 
         verticalLayout->addWidget(table_scientist);
 
-        pushButton = new QPushButton(SciWindow);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        button_remove_student = new QPushButton(SciWindow);
+        button_remove_student->setObjectName(QStringLiteral("button_remove_student"));
+        button_remove_student->setEnabled(false);
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(button_remove_student);
 
         button_addsci = new QPushButton(SciWindow);
         button_addsci->setObjectName(QStringLiteral("button_addsci"));
@@ -103,7 +105,7 @@ public:
         ___qtablewidgetitem2->setText(QApplication::translate("SciWindow", "Year of death", 0));
         QTableWidgetItem *___qtablewidgetitem3 = table_scientist->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("SciWindow", "Gender", 0));
-        pushButton->setText(QApplication::translate("SciWindow", "Remove selected scientist", 0));
+        button_remove_student->setText(QApplication::translate("SciWindow", "Remove selected scientist", 0));
         button_addsci->setText(QApplication::translate("SciWindow", "Add New", 0));
     } // retranslateUi
 

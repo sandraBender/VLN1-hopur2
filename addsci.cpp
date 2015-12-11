@@ -17,7 +17,7 @@ void AddSci::addscientist()
     QString gender = ui->comboBox_gender->currentText();
     if(ui->toggle_alive)
         yod = "0";
-    else
+    else if(ui->toggle_dead)
         yod = ui->line_yod->text();
 
 
