@@ -64,6 +64,8 @@ public:
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
         table_scientist->setEnabled(true);
         table_scientist->setMouseTracking(false);
+        table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_scientist->setSortingEnabled(true);
 
         verticalLayout->addWidget(table_scientist);
 
