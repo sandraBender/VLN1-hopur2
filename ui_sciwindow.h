@@ -39,6 +39,7 @@ public:
         if (SciWindow->objectName().isEmpty())
             SciWindow->setObjectName(QStringLiteral("SciWindow"));
         SciWindow->resize(458, 474);
+        SciWindow->setSizeGripEnabled(false);
         horizontalLayout = new QHBoxLayout(SciWindow);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();

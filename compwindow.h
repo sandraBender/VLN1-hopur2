@@ -2,6 +2,8 @@
 #define COMPWINDOW_H
 
 #include <QDialog>
+#include "computer.h"
+#include "service.h"
 
 namespace Ui {
 class CompWindow;
@@ -20,8 +22,13 @@ private slots:
 
     void on_button_close_clicked();
 
+    void on_line_filter_computers_textChanged(const QString &arg1);
+
 private:
     Ui::CompWindow *ui;
+    void displayAllComputers(string searchStr);
+    void displayComputers(std::vector<Computer> compVec);
+    Service serv;
 };
 
 #endif // COMPWINDOW_H

@@ -18,7 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTableView>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,10 +27,10 @@ QT_BEGIN_NAMESPACE
 class Ui_CompWindow
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *line_filter_computers;
-    QTableView *table_computers;
+    QTableWidget *tableWidget;
     QPushButton *button_remove_selected;
     QHBoxLayout *horizontalLayout;
     QPushButton *button_add_new;
@@ -41,23 +41,23 @@ public:
         if (CompWindow->objectName().isEmpty())
             CompWindow->setObjectName(QStringLiteral("CompWindow"));
         CompWindow->resize(400, 363);
-        widget = new QWidget(CompWindow);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(50, 30, 268, 305));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(CompWindow);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(50, 30, 268, 305));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        line_filter_computers = new QLineEdit(widget);
+        line_filter_computers = new QLineEdit(layoutWidget);
         line_filter_computers->setObjectName(QStringLiteral("line_filter_computers"));
 
         verticalLayout->addWidget(line_filter_computers);
 
-        table_computers = new QTableView(widget);
-        table_computers->setObjectName(QStringLiteral("table_computers"));
+        tableWidget = new QTableWidget(layoutWidget);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
 
-        verticalLayout->addWidget(table_computers);
+        verticalLayout->addWidget(tableWidget);
 
-        button_remove_selected = new QPushButton(widget);
+        button_remove_selected = new QPushButton(layoutWidget);
         button_remove_selected->setObjectName(QStringLiteral("button_remove_selected"));
         button_remove_selected->setEnabled(false);
 
@@ -65,12 +65,12 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        button_add_new = new QPushButton(widget);
+        button_add_new = new QPushButton(layoutWidget);
         button_add_new->setObjectName(QStringLiteral("button_add_new"));
 
         horizontalLayout->addWidget(button_add_new);
 
-        button_close = new QPushButton(widget);
+        button_close = new QPushButton(layoutWidget);
         button_close->setObjectName(QStringLiteral("button_close"));
 
         horizontalLayout->addWidget(button_close);
