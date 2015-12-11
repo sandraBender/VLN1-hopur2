@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -53,19 +53,26 @@
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item alignment="Qt::AlignRight">
-       <widget class="QCheckBox" name="toggle_alive">
-        <property name="text">
-         <string>Alive</string>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignRight">
-       <widget class="QCheckBox" name="toggle_dead">
-        <property name="text">
-         <string>Dead</string>
-        </property>
-       </widget>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item alignment="Qt::AlignRight">
+         <widget class="QRadioButton" name="button_alive">
+          <property name="text">
+           <string>Alive</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignRight">
+         <widget class="QRadioButton" name="button_dead">
+          <property name="text">
+           <string>Dead</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -145,50 +152,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>toggle_alive</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>toggle_dead</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>285</x>
-     <y>94</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>295</x>
-     <y>107</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toggle_alive</sender>
+   <sender>button_alive</sender>
    <signal>toggled(bool)</signal>
    <receiver>line_yod</receiver>
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>263</x>
-     <y>82</y>
+     <x>197</x>
+     <y>88</y>
     </hint>
     <hint type="destinationlabel">
-     <x>212</x>
-     <y>138</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>toggle_dead</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>toggle_alive</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>271</x>
-     <y>111</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>299</x>
-     <y>85</y>
+     <x>127</x>
+     <y>137</y>
     </hint>
    </hints>
   </connection>

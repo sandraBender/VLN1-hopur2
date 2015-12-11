@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -21,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -30,7 +30,7 @@ QT_BEGIN_NAMESPACE
 class Ui_AddSci
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_name;
@@ -39,8 +39,9 @@ public:
     QLabel *label_yob;
     QLineEdit *line_yob;
     QVBoxLayout *verticalLayout_3;
-    QCheckBox *toggle_alive;
-    QCheckBox *toggle_dead;
+    QVBoxLayout *verticalLayout;
+    QRadioButton *button_alive;
+    QRadioButton *button_dead;
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_yod;
     QLineEdit *line_yod;
@@ -57,20 +58,20 @@ public:
         if (AddSci->objectName().isEmpty())
             AddSci->setObjectName(QStringLiteral("AddSci"));
         AddSci->resize(284, 269);
-        widget = new QWidget(AddSci);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(30, 10, 218, 220));
-        verticalLayout_4 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(AddSci);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(30, 10, 218, 220));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        label_name = new QLabel(widget);
+        label_name = new QLabel(layoutWidget);
         label_name->setObjectName(QStringLiteral("label_name"));
 
         horizontalLayout_11->addWidget(label_name);
 
-        line_name = new QLineEdit(widget);
+        line_name = new QLineEdit(layoutWidget);
         line_name->setObjectName(QStringLiteral("line_name"));
 
         horizontalLayout_11->addWidget(line_name, 0, Qt::AlignRight);
@@ -80,12 +81,12 @@ public:
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        label_yob = new QLabel(widget);
+        label_yob = new QLabel(layoutWidget);
         label_yob->setObjectName(QStringLiteral("label_yob"));
 
         horizontalLayout_12->addWidget(label_yob);
 
-        line_yob = new QLineEdit(widget);
+        line_yob = new QLineEdit(layoutWidget);
         line_yob->setObjectName(QStringLiteral("line_yob"));
 
         horizontalLayout_12->addWidget(line_yob, 0, Qt::AlignRight);
@@ -95,27 +96,33 @@ public:
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        toggle_alive = new QCheckBox(widget);
-        toggle_alive->setObjectName(QStringLiteral("toggle_alive"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        button_alive = new QRadioButton(layoutWidget);
+        button_alive->setObjectName(QStringLiteral("button_alive"));
+        button_alive->setChecked(true);
 
-        verticalLayout_3->addWidget(toggle_alive, 0, Qt::AlignRight);
+        verticalLayout->addWidget(button_alive, 0, Qt::AlignRight);
 
-        toggle_dead = new QCheckBox(widget);
-        toggle_dead->setObjectName(QStringLiteral("toggle_dead"));
+        button_dead = new QRadioButton(layoutWidget);
+        button_dead->setObjectName(QStringLiteral("button_dead"));
 
-        verticalLayout_3->addWidget(toggle_dead, 0, Qt::AlignRight);
+        verticalLayout->addWidget(button_dead, 0, Qt::AlignRight);
+
+
+        verticalLayout_3->addLayout(verticalLayout);
 
 
         verticalLayout_4->addLayout(verticalLayout_3);
 
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        label_yod = new QLabel(widget);
+        label_yod = new QLabel(layoutWidget);
         label_yod->setObjectName(QStringLiteral("label_yod"));
 
         horizontalLayout_13->addWidget(label_yod);
 
-        line_yod = new QLineEdit(widget);
+        line_yod = new QLineEdit(layoutWidget);
         line_yod->setObjectName(QStringLiteral("line_yod"));
 
         horizontalLayout_13->addWidget(line_yod, 0, Qt::AlignRight);
@@ -125,12 +132,12 @@ public:
 
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
-        label_gender = new QLabel(widget);
+        label_gender = new QLabel(layoutWidget);
         label_gender->setObjectName(QStringLiteral("label_gender"));
 
         horizontalLayout_14->addWidget(label_gender);
 
-        comboBox_gender = new QComboBox(widget);
+        comboBox_gender = new QComboBox(layoutWidget);
         comboBox_gender->setObjectName(QStringLiteral("comboBox_gender"));
 
         horizontalLayout_14->addWidget(comboBox_gender);
@@ -144,12 +151,12 @@ public:
 
         horizontalLayout_15->addItem(horizontalSpacer_3);
 
-        button_add = new QPushButton(widget);
+        button_add = new QPushButton(layoutWidget);
         button_add->setObjectName(QStringLiteral("button_add"));
 
         horizontalLayout_15->addWidget(button_add);
 
-        button_cancel = new QPushButton(widget);
+        button_cancel = new QPushButton(layoutWidget);
         button_cancel->setObjectName(QStringLiteral("button_cancel"));
 
         horizontalLayout_15->addWidget(button_cancel);
@@ -159,9 +166,7 @@ public:
 
 
         retranslateUi(AddSci);
-        QObject::connect(toggle_alive, SIGNAL(toggled(bool)), toggle_dead, SLOT(setDisabled(bool)));
-        QObject::connect(toggle_alive, SIGNAL(toggled(bool)), line_yod, SLOT(setDisabled(bool)));
-        QObject::connect(toggle_dead, SIGNAL(toggled(bool)), toggle_alive, SLOT(setDisabled(bool)));
+        QObject::connect(button_alive, SIGNAL(toggled(bool)), line_yod, SLOT(setDisabled(bool)));
 
         QMetaObject::connectSlotsByName(AddSci);
     } // setupUi
@@ -171,8 +176,8 @@ public:
         AddSci->setWindowTitle(QApplication::translate("AddSci", "Dialog", 0));
         label_name->setText(QApplication::translate("AddSci", "Name", 0));
         label_yob->setText(QApplication::translate("AddSci", "Year of birth", 0));
-        toggle_alive->setText(QApplication::translate("AddSci", "Alive", 0));
-        toggle_dead->setText(QApplication::translate("AddSci", "Dead", 0));
+        button_alive->setText(QApplication::translate("AddSci", "Alive", 0));
+        button_dead->setText(QApplication::translate("AddSci", "Dead", 0));
         label_yod->setText(QApplication::translate("AddSci", "Year of death", 0));
         label_gender->setText(QApplication::translate("AddSci", "Gender", 0));
         comboBox_gender->clear();

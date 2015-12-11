@@ -7,6 +7,7 @@ AddSci::AddSci(QWidget *parent) :
     ui(new Ui::AddSci)
 {
     ui->setupUi(this);
+    ui->button_alive->setAutoExclusive(true);
 }
 
 void AddSci::addscientist()
@@ -15,9 +16,9 @@ void AddSci::addscientist()
     QString yob = ui->line_yob->text();
     QString yod;
     QString gender = ui->comboBox_gender->currentText();
-    if(ui->toggle_alive)
+    if(ui->button_alive)
         yod = "0";
-    else if(ui->toggle_dead)
+    else if(ui->button_dead)
         yod = ui->line_yod->text();
 
 
