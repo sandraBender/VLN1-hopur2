@@ -70,7 +70,7 @@ void database::editDataComp(QString name, QString buildYear, QString builtOrNot,
     query.exec(command);
 }
 
-//Function to sort Scientists
+//Function to Scientists
 vector<Scientist> database::sortSci(char number){
     QString command;
     vector<Scientist> vec;

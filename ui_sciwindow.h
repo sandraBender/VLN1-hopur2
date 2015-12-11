@@ -62,6 +62,8 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         table_scientist->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
+        table_scientist->setEnabled(true);
+        table_scientist->setMouseTracking(false);
 
         verticalLayout->addWidget(table_scientist);
 
