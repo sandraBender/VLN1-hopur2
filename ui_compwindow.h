@@ -43,7 +43,7 @@ public:
         CompWindow->resize(400, 363);
         layoutWidget = new QWidget(CompWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 30, 268, 305));
+        layoutWidget->setGeometry(QRect(7, 4, 341, 351));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -53,7 +53,18 @@ public:
         verticalLayout->addWidget(line_filter_computers);
 
         table_computers = new QTableWidget(layoutWidget);
+        if (table_computers->columnCount() < 3)
+            table_computers->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        table_computers->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        table_computers->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        table_computers->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         table_computers->setObjectName(QStringLiteral("table_computers"));
+        table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_computers->setSortingEnabled(true);
+        table_computers->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(table_computers);
 
@@ -88,6 +99,12 @@ public:
     {
         CompWindow->setWindowTitle(QApplication::translate("CompWindow", "Dialog", 0));
         line_filter_computers->setPlaceholderText(QApplication::translate("CompWindow", "Filter computers...", 0));
+        QTableWidgetItem *___qtablewidgetitem = table_computers->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QApplication::translate("CompWindow", "Name", 0));
+        QTableWidgetItem *___qtablewidgetitem1 = table_computers->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QApplication::translate("CompWindow", "Build Year", 0));
+        QTableWidgetItem *___qtablewidgetitem2 = table_computers->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("CompWindow", "Type", 0));
         button_remove_selected->setText(QApplication::translate("CompWindow", "Remove selected computer", 0));
         button_add_new->setText(QApplication::translate("CompWindow", "Add new", 0));
         button_close->setText(QApplication::translate("CompWindow", "Close", 0));

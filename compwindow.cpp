@@ -30,13 +30,13 @@ void CompWindow::on_button_close_clicked()
 void CompWindow::on_line_filter_computers_textChanged(const QString &arg1)
 {
     string searchStr = ui->line_filter_computers->text().toStdString();
-    //displayAllComputers(searchStr);
+    displayAllComputers(searchStr);
 }
 
 void CompWindow::displayAllComputers(string searchStr)
 {
     vector<Computer> vec = serv.searchCom(searchStr, '1');
-    //displayComputers(vec);
+    displayComputers(vec);
 }
 
 void CompWindow::displayComputers(std::vector<Computer> compVec)
@@ -48,14 +48,18 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
         Computer currentComputer = compVec.at(row);
 
         QString name = QString::fromStdString(currentComputer.getName());
+        QString yearBuilt;
         bool built = currentComputer.getBuiltOrNot();
-        QString yearBuilt = QString::number(currentComputer.getYearInvented());
+        if(built == true)
+            yearBuilt = QString::number(currentComputer.getYearInvented());
+        else
+            yearBuilt = "Not Built";
         QString type = QString::fromStdString(currentComputer.getType());
 
         ui->table_computers->setItem(row, 0, new QTableWidgetItem(name));
-        //ui->table_scientist->setItem(row, 1, new QTableWidgetItem(yob));
-        //ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yod));
-        //ui->table_scientist->setItem(row, 3, new QTableWidgetItem(gender));
+        ui->table_computers->setItem(row, 1, new QTableWidgetItem(yearBuilt));
+        ui->table_computers->setItem(row, 2, new QTableWidgetItem(type));
+
 
     }
     currentlyDisplayed = compVec;
