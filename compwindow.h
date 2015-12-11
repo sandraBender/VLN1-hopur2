@@ -29,6 +29,7 @@ private:
     void displayAllComputers(string searchStr);
     void displayComputers(std::vector<Computer> compVec);
     Service serv;
+    vector<Computer> currentlyDisplayed;
 };
 
 #endif // COMPWINDOW_H

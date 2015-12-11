@@ -30,7 +30,7 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *line_filter_computers;
-    QTableWidget *tableWidget;
+    QTableWidget *table_computers;
     QPushButton *button_remove_selected;
     QHBoxLayout *horizontalLayout;
     QPushButton *button_add_new;
@@ -52,10 +52,10 @@ public:
 
         verticalLayout->addWidget(line_filter_computers);
 
-        tableWidget = new QTableWidget(layoutWidget);
-        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        table_computers = new QTableWidget(layoutWidget);
+        table_computers->setObjectName(QStringLiteral("table_computers"));
 
-        verticalLayout->addWidget(tableWidget);
+        verticalLayout->addWidget(table_computers);
 
         button_remove_selected = new QPushButton(layoutWidget);
         button_remove_selected->setObjectName(QStringLiteral("button_remove_selected"));
