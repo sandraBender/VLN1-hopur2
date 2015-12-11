@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "sciwindow.h"
 #include "service.h"
+#include "compwindow.h"
+#include "linkwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +21,10 @@ public:
 
 private slots:
     void on_button_scientist_clicked();
+
+    void on_button_computer_clicked();
+
+    void on_button_relation_clicked();
 
 private:
     Ui::MainWindow *ui;

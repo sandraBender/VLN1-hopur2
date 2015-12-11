@@ -15,7 +15,9 @@ SOURCES += main.cpp\
     service.cpp \
     database.cpp \
     sciwindow.cpp \
-    addsci.cpp
+    addsci.cpp \
+    compwindow.cpp \
+    linkwindow.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -23,10 +25,14 @@ HEADERS  += mainwindow.h \
     service.h \
     database.h \
     sciwindow.h \
-    addsci.h
+    addsci.h \
+    compwindow.h \
+    linkwindow.h
 
 FORMS    += mainwindow.ui \
     sciwindow.ui \
-    addsci.ui
+    addsci.ui \
+    compwindow.ui \
+    linkwindow.ui
 
 DISTFILES +=

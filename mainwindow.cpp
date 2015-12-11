@@ -19,3 +19,15 @@ void MainWindow::on_button_scientist_clicked()
     scientistWindow.exec();
 
 }
+
+void MainWindow::on_button_computer_clicked()
+{
+    CompWindow comp;
+    comp.exec();
+}
+
+void MainWindow::on_button_relation_clicked()
+{
+    LinkWindow link;
+    link.exec();
+}

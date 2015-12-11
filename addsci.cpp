@@ -1,6 +1,7 @@
 #include "addsci.h"
 #include "ui_addsci.h"
 #include "service.h"
+#include "sciwindow.h"
 
 AddSci::AddSci(QWidget *parent) :
     QDialog(parent),
@@ -34,5 +35,12 @@ AddSci::~AddSci()
 void AddSci::on_button_add_clicked()
 {
     addscientist();
+    SciWindow yee;
+    close();
+    yee.displayAllScientists("");
+}
+
+void AddSci::on_button_cancel_clicked()
+{
     close();
 }

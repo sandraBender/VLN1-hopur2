@@ -16,6 +16,7 @@ class SciWindow : public QDialog
 
 public:
     explicit SciWindow(QWidget *parent = 0);
+    void displayAllScientists(string searchstr);
     ~SciWindow();
 
 private slots:
@@ -29,7 +30,6 @@ private slots:
     void on_button_remove_student_clicked();
 
 private:
-    void displayAllScientists(string searchstr);
     void displayScientists(std::vector<Scientist> scivec);
     Ui::SciWindow *ui;
     AddSci addScientist;

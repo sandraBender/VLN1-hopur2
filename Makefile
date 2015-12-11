@@ -55,9 +55,13 @@ SOURCES       = main.cpp \
 		service.cpp \
 		database.cpp \
 		sciwindow.cpp \
-		addsci.cpp moc_mainwindow.cpp \
+		addsci.cpp \
+		compwindow.cpp \
+		linkwindow.cpp moc_mainwindow.cpp \
 		moc_sciwindow.cpp \
-		moc_addsci.cpp
+		moc_addsci.cpp \
+		moc_compwindow.cpp \
+		moc_linkwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		computer.o \
@@ -66,9 +70,13 @@ OBJECTS       = main.o \
 		database.o \
 		sciwindow.o \
 		addsci.o \
+		compwindow.o \
+		linkwindow.o \
 		moc_mainwindow.o \
 		moc_sciwindow.o \
-		moc_addsci.o
+		moc_addsci.o \
+		moc_compwindow.o \
+		moc_linkwindow.o
 DIST          = ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../Qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -217,14 +225,18 @@ DIST          = ../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		service.h \
 		database.h \
 		sciwindow.h \
-		addsci.h main.cpp \
+		addsci.h \
+		compwindow.h \
+		linkwindow.h main.cpp \
 		mainwindow.cpp \
 		computer.cpp \
 		scientist.cpp \
 		service.cpp \
 		database.cpp \
 		sciwindow.cpp \
-		addsci.cpp
+		addsci.cpp \
+		compwindow.cpp \
+		linkwindow.cpp
 QMAKE_TARGET  = VLN1-hopur2
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = VLN1-hopur2.app/Contents/MacOS/VLN1-hopur2
@@ -262,7 +274,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_sciwindow.h ui_addsci.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_sciwindow.h ui_addsci.h ui_compwindow.h ui_linkwindow.h $(OBJECTS)  
 	@test -d VLN1-hopur2.app/Contents/MacOS/ || mkdir -p VLN1-hopur2.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -590,9 +602,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h computer.h scientist.h service.h database.h sciwindow.h addsci.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp computer.cpp scientist.cpp service.cpp database.cpp sciwindow.cpp addsci.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui sciwindow.ui addsci.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h computer.h scientist.h service.h database.h sciwindow.h addsci.h compwindow.h linkwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp computer.cpp scientist.cpp service.cpp database.cpp sciwindow.cpp addsci.cpp compwindow.cpp linkwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui sciwindow.ui addsci.ui compwindow.ui linkwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -618,9 +630,9 @@ compiler_objective_c_make_all:
 compiler_objective_c_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_sciwindow.cpp moc_addsci.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_sciwindow.cpp moc_addsci.cpp moc_compwindow.cpp moc_linkwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_sciwindow.cpp moc_addsci.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_sciwindow.cpp moc_addsci.cpp moc_compwindow.cpp moc_linkwindow.cpp
 moc_mainwindow.cpp: ../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		sciwindow.h \
@@ -649,6 +661,8 @@ moc_mainwindow.cpp: ../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWind
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		computer.h \
+		compwindow.h \
+		linkwindow.h \
 		mainwindow.h
 	/Users/sindrirafn/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/sindrirafn/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/sindrirafn/VLN1-hopur2 -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/sindrirafn/Qt/5.5/clang_64/lib mainwindow.h -o moc_mainwindow.cpp
 
@@ -707,11 +721,21 @@ moc_addsci.cpp: ../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		addsci.h
 	/Users/sindrirafn/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/sindrirafn/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/sindrirafn/VLN1-hopur2 -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/sindrirafn/Qt/5.5/clang_64/lib addsci.h -o moc_addsci.cpp
 
+moc_compwindow.cpp: ../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		compwindow.h
+	/Users/sindrirafn/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/sindrirafn/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/sindrirafn/VLN1-hopur2 -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/sindrirafn/Qt/5.5/clang_64/lib compwindow.h -o moc_compwindow.cpp
+
+moc_linkwindow.cpp: ../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		linkwindow.h
+	/Users/sindrirafn/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/sindrirafn/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/sindrirafn/VLN1-hopur2 -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/sindrirafn/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/sindrirafn/Qt/5.5/clang_64/lib linkwindow.h -o moc_linkwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_sciwindow.h ui_addsci.h
+compiler_uic_make_all: ui_mainwindow.h ui_sciwindow.h ui_addsci.h ui_compwindow.h ui_linkwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_sciwindow.h ui_addsci.h
+	-$(DEL_FILE) ui_mainwindow.h ui_sciwindow.h ui_addsci.h ui_compwindow.h ui_linkwindow.h
 ui_mainwindow.h: mainwindow.ui
 	/Users/sindrirafn/Qt/5.5/clang_64/bin/uic mainwindow.ui -o ui_mainwindow.h
 
@@ -720,6 +744,12 @@ ui_sciwindow.h: sciwindow.ui
 
 ui_addsci.h: addsci.ui
 	/Users/sindrirafn/Qt/5.5/clang_64/bin/uic addsci.ui -o ui_addsci.h
+
+ui_compwindow.h: compwindow.ui
+	/Users/sindrirafn/Qt/5.5/clang_64/bin/uic compwindow.ui -o ui_compwindow.h
+
+ui_linkwindow.h: linkwindow.ui
+	/Users/sindrirafn/Qt/5.5/clang_64/bin/uic linkwindow.ui -o ui_linkwindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -762,6 +792,8 @@ main.o: main.cpp mainwindow.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		computer.h \
+		compwindow.h \
+		linkwindow.h \
 		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -795,6 +827,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		computer.h \
+		compwindow.h \
+		linkwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
@@ -905,8 +939,21 @@ addsci.o: addsci.cpp addsci.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		computer.h \
-		ui_addsci.h
+		ui_addsci.h \
+		sciwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addsci.o addsci.cpp
+
+compwindow.o: compwindow.cpp compwindow.h \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_compwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compwindow.o compwindow.cpp
+
+linkwindow.o: linkwindow.cpp linkwindow.h \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_linkwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o linkwindow.o linkwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -916,6 +963,12 @@ moc_sciwindow.o: moc_sciwindow.cpp
 
 moc_addsci.o: moc_addsci.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addsci.o moc_addsci.cpp
+
+moc_compwindow.o: moc_compwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_compwindow.o moc_compwindow.cpp
+
+moc_linkwindow.o: moc_linkwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_linkwindow.o moc_linkwindow.cpp
 
 ####### Install
 
