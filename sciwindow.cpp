@@ -8,7 +8,7 @@ SciWindow::SciWindow(QWidget *parent) :
     ui(new Ui::SciWindow)
 {
     ui->setupUi(this);
-    displayAllScientists("name");
+    displayAllScientists("");
 }
 
 SciWindow::~SciWindow()
@@ -47,6 +47,8 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
         QString name = QString::fromStdString(currentScientist.getName());
         QString yob = QString::number(currentScientist.getYob());
         QString yod = QString::number(currentScientist.getYod());
+            if(yod == "0")
+                yod = "Alive";
         QString gender = QString::fromStdString(currentScientist.getGender());
 
         ui->table_scientist->setItem(row, 0, new QTableWidgetItem(name));
