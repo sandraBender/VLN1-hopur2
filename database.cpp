@@ -66,7 +66,7 @@ void database::editData(QString name, QString yob, QString yod, QString gender)
 //Function to add entries to Computers table
 void database::editDataComp(QString name, QString buildYear, QString builtOrNot, QString type)
 {
-    QString command = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "','" + buildYear + "','" + builtOrNot + "','" + type + "')";
+    QString command = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "', " + buildYear + ", " + builtOrNot + ",'" + type + "')";
     query.exec(command);
 }
 

@@ -62,6 +62,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         table_computers->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         table_computers->setObjectName(QStringLiteral("table_computers"));
+        table_computers->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_computers->setSortingEnabled(true);
         table_computers->verticalHeader()->setVisible(false);

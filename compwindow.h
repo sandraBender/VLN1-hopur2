@@ -24,6 +24,10 @@ private slots:
 
     void on_line_filter_computers_textChanged(const QString &arg1);
 
+    void on_table_computers_clicked(const QModelIndex &index);
+
+    void on_button_remove_selected_clicked();
+    
 private:
     Ui::CompWindow *ui;
     void displayAllComputers(string searchStr);

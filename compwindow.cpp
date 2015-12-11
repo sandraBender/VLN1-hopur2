@@ -9,6 +9,7 @@ CompWindow::CompWindow(QWidget *parent) :
     ui(new Ui::CompWindow)
 {
     ui->setupUi(this);
+    displayAllComputers("");
 }
 
 CompWindow::~CompWindow()
@@ -63,4 +64,17 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
 
     }
     currentlyDisplayed = compVec;
+}
+
+void CompWindow::on_table_computers_clicked(const QModelIndex &index)
+{
+    ui->button_remove_selected->setEnabled(true);
+}
+
+void CompWindow::on_button_remove_selected_clicked()
+{
+    QString compname = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
+    serv.deleteData('2', compname);
+    ui->line_filter_computers->clear();
+    displayAllComputers("");
 }

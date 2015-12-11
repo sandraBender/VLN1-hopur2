@@ -72,6 +72,9 @@
           <property name="text">
            <string>Built</string>
           </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item>
@@ -97,7 +100,7 @@
       <item>
        <widget class="QLineEdit" name="line_build_year">
         <property name="enabled">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -144,18 +147,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>button_built</sender>
+   <sender>button_notbuilt</sender>
    <signal>toggled(bool)</signal>
    <receiver>line_build_year</receiver>
-   <slot>setEnabled(bool)</slot>
+   <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>71</x>
-     <y>68</y>
+     <x>88</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>123</y>
+     <x>125</x>
+     <y>125</y>
     </hint>
    </hints>
   </connection>

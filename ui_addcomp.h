@@ -85,6 +85,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         button_built = new QRadioButton(layoutWidget);
         button_built->setObjectName(QStringLiteral("button_built"));
+        button_built->setChecked(true);
 
         verticalLayout->addWidget(button_built);
 
@@ -108,7 +109,7 @@ public:
 
         line_build_year = new QLineEdit(layoutWidget);
         line_build_year->setObjectName(QStringLiteral("line_build_year"));
-        line_build_year->setEnabled(false);
+        line_build_year->setEnabled(true);
 
         horizontalLayout_3->addWidget(line_build_year);
 
@@ -132,7 +133,7 @@ public:
 
 
         retranslateUi(AddComp);
-        QObject::connect(button_built, SIGNAL(toggled(bool)), line_build_year, SLOT(setEnabled(bool)));
+        QObject::connect(button_notbuilt, SIGNAL(toggled(bool)), line_build_year, SLOT(setDisabled(bool)));
 
         QMetaObject::connectSlotsByName(AddComp);
     } // setupUi
