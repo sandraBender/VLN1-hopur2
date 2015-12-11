@@ -14,19 +14,70 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableView>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_CompWindow
 {
 public:
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLineEdit *line_filter_computers;
+    QTableView *table_computers;
+    QPushButton *button_remove_selected;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *button_add_new;
+    QPushButton *button_close;
 
     void setupUi(QDialog *CompWindow)
     {
         if (CompWindow->objectName().isEmpty())
             CompWindow->setObjectName(QStringLiteral("CompWindow"));
-        CompWindow->resize(400, 300);
+        CompWindow->resize(400, 363);
+        widget = new QWidget(CompWindow);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(50, 30, 268, 305));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        line_filter_computers = new QLineEdit(widget);
+        line_filter_computers->setObjectName(QStringLiteral("line_filter_computers"));
+
+        verticalLayout->addWidget(line_filter_computers);
+
+        table_computers = new QTableView(widget);
+        table_computers->setObjectName(QStringLiteral("table_computers"));
+
+        verticalLayout->addWidget(table_computers);
+
+        button_remove_selected = new QPushButton(widget);
+        button_remove_selected->setObjectName(QStringLiteral("button_remove_selected"));
+        button_remove_selected->setEnabled(false);
+
+        verticalLayout->addWidget(button_remove_selected);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        button_add_new = new QPushButton(widget);
+        button_add_new->setObjectName(QStringLiteral("button_add_new"));
+
+        horizontalLayout->addWidget(button_add_new);
+
+        button_close = new QPushButton(widget);
+        button_close->setObjectName(QStringLiteral("button_close"));
+
+        horizontalLayout->addWidget(button_close);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
 
         retranslateUi(CompWindow);
 
@@ -36,6 +87,10 @@ public:
     void retranslateUi(QDialog *CompWindow)
     {
         CompWindow->setWindowTitle(QApplication::translate("CompWindow", "Dialog", 0));
+        line_filter_computers->setPlaceholderText(QApplication::translate("CompWindow", "Filter computers...", 0));
+        button_remove_selected->setText(QApplication::translate("CompWindow", "Remove selected computer", 0));
+        button_add_new->setText(QApplication::translate("CompWindow", "Add new", 0));
+        button_close->setText(QApplication::translate("CompWindow", "Close", 0));
     } // retranslateUi
 
 };

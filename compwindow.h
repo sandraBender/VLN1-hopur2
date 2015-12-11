@@ -15,6 +15,11 @@ public:
     explicit CompWindow(QWidget *parent = 0);
     ~CompWindow();
 
+private slots:
+    void on_button_add_new_clicked();
+
+    void on_button_close_clicked();
+
 private:
     Ui::CompWindow *ui;
 };

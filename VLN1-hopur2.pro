@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     sciwindow.cpp \
     addsci.cpp \
     compwindow.cpp \
-    linkwindow.cpp
+    linkwindow.cpp \
+    addcomp.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -27,12 +28,14 @@ HEADERS  += mainwindow.h \
     sciwindow.h \
     addsci.h \
     compwindow.h \
-    linkwindow.h
+    linkwindow.h \
+    addcomp.h
 
 FORMS    += mainwindow.ui \
     sciwindow.ui \
     addsci.ui \
     compwindow.ui \
-    linkwindow.ui
+    linkwindow.ui \
+    addcomp.ui
 
 DISTFILES +=
