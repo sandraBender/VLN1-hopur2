@@ -10,7 +10,7 @@ bool database::getDatabase()
 {
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "Database.sqlite";
+    QString dbName = "/Users/sindrirafn/Database.sqlite";
         db.setDatabaseName(dbName);
 
         cout << "DB opening cerimony commencing! " << endl;
