@@ -15,6 +15,7 @@ class CompWindow : public QDialog
 
 public:
     explicit CompWindow(QWidget *parent = 0);
+    void displayAllComputers(string searchStr);
     ~CompWindow();
 
 private slots:
@@ -27,10 +28,10 @@ private slots:
     void on_table_computers_clicked(const QModelIndex &index);
 
     void on_button_remove_selected_clicked();
+
     
 private:
     Ui::CompWindow *ui;
-    void displayAllComputers(string searchStr);
     void displayComputers(std::vector<Computer> compVec);
     Service serv;
     vector<Computer> currentlyDisplayed;

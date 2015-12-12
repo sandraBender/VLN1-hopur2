@@ -32,6 +32,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_name;
+    QLabel *label_errorName;
     QLineEdit *line_name;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -39,18 +40,20 @@ public:
     QRadioButton *button_notbuilt;
     QHBoxLayout *horizontalLayout_3;
     QLabel *lebel_buildyear;
+    QLabel *label_errorYear;
     QLineEdit *line_build_year;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_type;
     QComboBox *combo_type;
     QPushButton *button_close;
     QPushButton *button_add;
+    QLabel *label_addsuccess;
 
     void setupUi(QDialog *AddComp)
     {
         if (AddComp->objectName().isEmpty())
             AddComp->setObjectName(QStringLiteral("AddComp"));
-        AddComp->resize(250, 300);
+        AddComp->resize(290, 319);
         verticalLayout_3 = new QVBoxLayout(AddComp);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_2 = new QVBoxLayout();
@@ -62,13 +65,18 @@ public:
 
         horizontalLayout->addWidget(label_name);
 
-        line_name = new QLineEdit(AddComp);
-        line_name->setObjectName(QStringLiteral("line_name"));
+        label_errorName = new QLabel(AddComp);
+        label_errorName->setObjectName(QStringLiteral("label_errorName"));
 
-        horizontalLayout->addWidget(line_name);
+        horizontalLayout->addWidget(label_errorName);
 
 
         verticalLayout_2->addLayout(horizontalLayout);
+
+        line_name = new QLineEdit(AddComp);
+        line_name->setObjectName(QStringLiteral("line_name"));
+
+        verticalLayout_2->addWidget(line_name);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -98,14 +106,19 @@ public:
 
         horizontalLayout_3->addWidget(lebel_buildyear);
 
+        label_errorYear = new QLabel(AddComp);
+        label_errorYear->setObjectName(QStringLiteral("label_errorYear"));
+
+        horizontalLayout_3->addWidget(label_errorYear);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
         line_build_year = new QLineEdit(AddComp);
         line_build_year->setObjectName(QStringLiteral("line_build_year"));
         line_build_year->setEnabled(true);
 
-        horizontalLayout_3->addWidget(line_build_year);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout_2->addWidget(line_build_year);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
@@ -135,6 +148,11 @@ public:
 
         verticalLayout_3->addWidget(button_add);
 
+        label_addsuccess = new QLabel(AddComp);
+        label_addsuccess->setObjectName(QStringLiteral("label_addsuccess"));
+
+        verticalLayout_3->addWidget(label_addsuccess);
+
 
         retranslateUi(AddComp);
         QObject::connect(button_notbuilt, SIGNAL(toggled(bool)), line_build_year, SLOT(setDisabled(bool)));
@@ -146,9 +164,11 @@ public:
     {
         AddComp->setWindowTitle(QApplication::translate("AddComp", "Dialog", 0));
         label_name->setText(QApplication::translate("AddComp", "Name", 0));
+        label_errorName->setText(QString());
         button_built->setText(QApplication::translate("AddComp", "Built", 0));
         button_notbuilt->setText(QApplication::translate("AddComp", "Not built", 0));
         lebel_buildyear->setText(QApplication::translate("AddComp", "Build Year", 0));
+        label_errorYear->setText(QString());
         label_type->setText(QApplication::translate("AddComp", "Type", 0));
         combo_type->clear();
         combo_type->insertItems(0, QStringList()
@@ -159,6 +179,7 @@ public:
         );
         button_close->setText(QApplication::translate("AddComp", "Close", 0));
         button_add->setText(QApplication::translate("AddComp", "Add", 0));
+        label_addsuccess->setText(QString());
     } // retranslateUi
 
 };

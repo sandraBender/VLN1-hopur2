@@ -13,6 +13,8 @@ AddSci::AddSci(QWidget *parent) :
 
 bool AddSci::addscientist()
 {
+    ui->label_errorName->setText("");
+    ui->label_errorYear->setText("");
     QString name = ui->line_name->text();
     QString yob = ui->line_yob->text();
     QString yod;
@@ -20,12 +22,12 @@ bool AddSci::addscientist()
 
     if (name.isEmpty())
     {
-        ui->line_name->setText("Name cannot be empty");
+        ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
         return false;
     }
     if (yob.isEmpty())
     {
-        ui->line_yob->setText("Year of birth cannot be empty");
+        ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year of birth cannot be empty </span>");
         return false;
     }
 

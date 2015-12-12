@@ -1,5 +1,6 @@
 #include "addcomp.h"
 #include "ui_addcomp.h"
+#include <QMessageBox>
 
 AddComp::AddComp(QWidget *parent) :
     QDialog(parent),
@@ -19,13 +20,23 @@ void AddComp::on_button_close_clicked()
     close();
 }
 
-void AddComp::addcomputer()
+bool AddComp::addcomputer()
 {
+    ui->label_errorName->setText("");
+    ui->label_errorYear->setText("");
     QString name = ui->line_name->text();
+    if(name.isEmpty()){
+        ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
+        return false;
+    }
     QString buildyear;
     QString builtornot;
     if(ui->button_built->isChecked()){
         buildyear = ui->line_build_year->text();
+        if(buildyear.isEmpty()){
+            ui->label_errorYear->setText("<span style = 'color: #DC143C' > Build year cannot be empty </span>");
+            return false;
+        }
         builtornot = "1";
     }
     else if(ui->button_notbuilt->isChecked()){
@@ -33,21 +44,20 @@ void AddComp::addcomputer()
         builtornot = "0";
     }
     QString type = ui->combo_type->currentText();
-    bool success = serv.addComputer(name, buildyear, builtornot, type);
+    return serv.addComputer(name, buildyear, builtornot, type);
 
-    if (success)
-    {
-        this->done(0);
-    }
-    else
-    {
-        this->done(-1);
-    }
 }
 
 
 void AddComp::on_button_add_clicked()
 {
-    addcomputer();
-    close();
+    if (addcomputer())
+    {
+        close();
+        CompWindow comWin;
+        comWin.displayAllComputers("");
+        ui->line_name->clear();
+        ui->line_build_year->clear();
+    }
 }
+

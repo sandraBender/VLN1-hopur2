@@ -33,9 +33,11 @@ public:
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_name;
+    QLabel *label_errorName;
     QLineEdit *line_name;
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_yob;
+    QLabel *label_errorYear;
     QLineEdit *line_yob;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout;
@@ -56,7 +58,7 @@ public:
     {
         if (AddSci->objectName().isEmpty())
             AddSci->setObjectName(QStringLiteral("AddSci"));
-        AddSci->resize(321, 269);
+        AddSci->resize(321, 307);
         verticalLayout_2 = new QVBoxLayout(AddSci);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_4 = new QVBoxLayout();
@@ -68,13 +70,18 @@ public:
 
         horizontalLayout_11->addWidget(label_name);
 
-        line_name = new QLineEdit(AddSci);
-        line_name->setObjectName(QStringLiteral("line_name"));
+        label_errorName = new QLabel(AddSci);
+        label_errorName->setObjectName(QStringLiteral("label_errorName"));
 
-        horizontalLayout_11->addWidget(line_name, 0, Qt::AlignRight);
+        horizontalLayout_11->addWidget(label_errorName);
 
 
         verticalLayout_4->addLayout(horizontalLayout_11);
+
+        line_name = new QLineEdit(AddSci);
+        line_name->setObjectName(QStringLiteral("line_name"));
+
+        verticalLayout_4->addWidget(line_name);
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
@@ -83,13 +90,18 @@ public:
 
         horizontalLayout_12->addWidget(label_yob);
 
-        line_yob = new QLineEdit(AddSci);
-        line_yob->setObjectName(QStringLiteral("line_yob"));
+        label_errorYear = new QLabel(AddSci);
+        label_errorYear->setObjectName(QStringLiteral("label_errorYear"));
 
-        horizontalLayout_12->addWidget(line_yob, 0, Qt::AlignRight);
+        horizontalLayout_12->addWidget(label_errorYear);
 
 
         verticalLayout_4->addLayout(horizontalLayout_12);
+
+        line_yob = new QLineEdit(AddSci);
+        line_yob->setObjectName(QStringLiteral("line_yob"));
+
+        verticalLayout_4->addWidget(line_yob);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -176,7 +188,9 @@ public:
     {
         AddSci->setWindowTitle(QApplication::translate("AddSci", "Dialog", 0));
         label_name->setText(QApplication::translate("AddSci", "Name", 0));
+        label_errorName->setText(QString());
         label_yob->setText(QApplication::translate("AddSci", "Year of birth", 0));
+        label_errorYear->setText(QString());
         button_alive->setText(QApplication::translate("AddSci", "Alive", 0));
         button_dead->setText(QApplication::translate("AddSci", "Dead", 0));
         label_yod->setText(QApplication::translate("AddSci", "Year of death", 0));

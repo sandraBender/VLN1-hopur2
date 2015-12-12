@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "service.h"
+#include "compwindow.h"
 
 namespace Ui {
 class AddComp;
@@ -23,7 +24,7 @@ private slots:
 
 private:
     Ui::AddComp *ui;
-    void addcomputer();
+    bool addcomputer();
     Service serv;
 
 };
