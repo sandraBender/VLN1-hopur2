@@ -23,14 +23,13 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_AddSci
 {
 public:
-    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_name;
@@ -57,21 +56,19 @@ public:
     {
         if (AddSci->objectName().isEmpty())
             AddSci->setObjectName(QStringLiteral("AddSci"));
-        AddSci->resize(284, 269);
-        layoutWidget = new QWidget(AddSci);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 10, 218, 220));
-        verticalLayout_4 = new QVBoxLayout(layoutWidget);
+        AddSci->resize(321, 269);
+        verticalLayout_2 = new QVBoxLayout(AddSci);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        label_name = new QLabel(layoutWidget);
+        label_name = new QLabel(AddSci);
         label_name->setObjectName(QStringLiteral("label_name"));
 
         horizontalLayout_11->addWidget(label_name);
 
-        line_name = new QLineEdit(layoutWidget);
+        line_name = new QLineEdit(AddSci);
         line_name->setObjectName(QStringLiteral("line_name"));
 
         horizontalLayout_11->addWidget(line_name, 0, Qt::AlignRight);
@@ -81,12 +78,12 @@ public:
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        label_yob = new QLabel(layoutWidget);
+        label_yob = new QLabel(AddSci);
         label_yob->setObjectName(QStringLiteral("label_yob"));
 
         horizontalLayout_12->addWidget(label_yob);
 
-        line_yob = new QLineEdit(layoutWidget);
+        line_yob = new QLineEdit(AddSci);
         line_yob->setObjectName(QStringLiteral("line_yob"));
 
         horizontalLayout_12->addWidget(line_yob, 0, Qt::AlignRight);
@@ -98,13 +95,13 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        button_alive = new QRadioButton(layoutWidget);
+        button_alive = new QRadioButton(AddSci);
         button_alive->setObjectName(QStringLiteral("button_alive"));
         button_alive->setChecked(true);
 
         verticalLayout->addWidget(button_alive, 0, Qt::AlignRight);
 
-        button_dead = new QRadioButton(layoutWidget);
+        button_dead = new QRadioButton(AddSci);
         button_dead->setObjectName(QStringLiteral("button_dead"));
 
         verticalLayout->addWidget(button_dead, 0, Qt::AlignRight);
@@ -117,12 +114,12 @@ public:
 
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        label_yod = new QLabel(layoutWidget);
+        label_yod = new QLabel(AddSci);
         label_yod->setObjectName(QStringLiteral("label_yod"));
 
         horizontalLayout_13->addWidget(label_yod);
 
-        line_yod = new QLineEdit(layoutWidget);
+        line_yod = new QLineEdit(AddSci);
         line_yod->setObjectName(QStringLiteral("line_yod"));
         line_yod->setEnabled(false);
 
@@ -133,12 +130,12 @@ public:
 
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
-        label_gender = new QLabel(layoutWidget);
+        label_gender = new QLabel(AddSci);
         label_gender->setObjectName(QStringLiteral("label_gender"));
 
         horizontalLayout_14->addWidget(label_gender);
 
-        comboBox_gender = new QComboBox(layoutWidget);
+        comboBox_gender = new QComboBox(AddSci);
         comboBox_gender->setObjectName(QStringLiteral("comboBox_gender"));
 
         horizontalLayout_14->addWidget(comboBox_gender);
@@ -152,18 +149,21 @@ public:
 
         horizontalLayout_15->addItem(horizontalSpacer_3);
 
-        button_add = new QPushButton(layoutWidget);
+        button_add = new QPushButton(AddSci);
         button_add->setObjectName(QStringLiteral("button_add"));
 
         horizontalLayout_15->addWidget(button_add);
 
-        button_cancel = new QPushButton(layoutWidget);
+        button_cancel = new QPushButton(AddSci);
         button_cancel->setObjectName(QStringLiteral("button_cancel"));
 
         horizontalLayout_15->addWidget(button_cancel);
 
 
         verticalLayout_4->addLayout(horizontalLayout_15);
+
+
+        verticalLayout_2->addLayout(verticalLayout_4);
 
 
         retranslateUi(AddSci);

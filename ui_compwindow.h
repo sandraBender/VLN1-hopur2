@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'compwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.2
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -20,14 +20,13 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_CompWindow
 {
 public:
-    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QLineEdit *line_filter_computers;
     QTableWidget *table_computers;
@@ -40,19 +39,17 @@ public:
     {
         if (CompWindow->objectName().isEmpty())
             CompWindow->setObjectName(QStringLiteral("CompWindow"));
-        CompWindow->resize(356, 363);
-        layoutWidget = new QWidget(CompWindow);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(7, 4, 341, 351));
-        verticalLayout = new QVBoxLayout(layoutWidget);
+        CompWindow->resize(367, 363);
+        verticalLayout_2 = new QVBoxLayout(CompWindow);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        line_filter_computers = new QLineEdit(layoutWidget);
+        line_filter_computers = new QLineEdit(CompWindow);
         line_filter_computers->setObjectName(QStringLiteral("line_filter_computers"));
 
         verticalLayout->addWidget(line_filter_computers);
 
-        table_computers = new QTableWidget(layoutWidget);
+        table_computers = new QTableWidget(CompWindow);
         if (table_computers->columnCount() < 3)
             table_computers->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
@@ -72,7 +69,7 @@ public:
 
         verticalLayout->addWidget(table_computers);
 
-        button_remove_selected = new QPushButton(layoutWidget);
+        button_remove_selected = new QPushButton(CompWindow);
         button_remove_selected->setObjectName(QStringLiteral("button_remove_selected"));
         button_remove_selected->setEnabled(false);
 
@@ -80,18 +77,21 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        button_add_new = new QPushButton(layoutWidget);
+        button_add_new = new QPushButton(CompWindow);
         button_add_new->setObjectName(QStringLiteral("button_add_new"));
 
         horizontalLayout->addWidget(button_add_new);
 
-        button_close = new QPushButton(layoutWidget);
+        button_close = new QPushButton(CompWindow);
         button_close->setObjectName(QStringLiteral("button_close"));
 
         horizontalLayout->addWidget(button_close);
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+
+        verticalLayout_2->addLayout(verticalLayout);
 
 
         retranslateUi(CompWindow);
