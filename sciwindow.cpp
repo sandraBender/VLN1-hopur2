@@ -48,6 +48,16 @@ void SciWindow::displayAllScientists(string searchstr)
     ui->table_scientist->setSortingEnabled(true);
 }
 
+vector<Scientist> SciWindow::getCurrent()
+{
+    return currentlyDisplayed;
+}
+
+QString SciWindow::getName()
+{
+    return ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
+}
+
 void SciWindow::displayScientists(std::vector<Scientist> scivec)
 {
     ui->table_scientist->clearContents();
@@ -84,6 +94,11 @@ void SciWindow::on_button_remove_student_clicked()
 
    serv.deleteData('1', sciName);
    ui->label_successRemove->setText("Scientist was successfully removed");
-
+   ui->filter_scientists->clear();
    displayAllScientists("");
+}
+
+void SciWindow::on_button_close_clicked()
+{
+    close();
 }
