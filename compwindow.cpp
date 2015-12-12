@@ -27,12 +27,12 @@ void CompWindow::on_button_add_new_clicked()
 
     if (addComputerReturnValue == 0)
     {
-        ui->label_Remove_success->setText("Successfully added computer");
+        ui->label_Remove_success->setText("");
         displayAllComputers("");
     }
     else
     {
-        ui->label_Remove_success->setText("<span style = 'color: #DC143C' > Something went wrong please try again </span>");
+        //ui->label_Remove_success->setText("");
     }
 }
 
@@ -91,6 +91,6 @@ void CompWindow::on_button_remove_selected_clicked()
     QString compname = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
     serv.deleteData('2', compname);
     ui->line_filter_computers->clear();
-    ui->label_Remove_success->setText("<span style = 'color: #DC143C' > Computer was successfully removed </span>");
+    ui->label_Remove_success->setText("Computer was successfully removed");
     displayAllComputers("");
 }

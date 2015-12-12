@@ -23,12 +23,12 @@ void SciWindow::on_button_addsci_clicked()
 
     if (addScientistReturnValue == 0)
     {
-        ui->label_successRemove->setText("Successfully added scientist");
+        ui->label_successRemove->setText("");
         displayAllScientists("");
     }
     else
     {
-        ui->label_successRemove->setText("<span style = 'color: #DC143C' > Something went wrong please try again </span>");
+        //ui->label_successRemove->setText("");
     }
 
 }
