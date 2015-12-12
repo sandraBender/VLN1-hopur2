@@ -11,20 +11,30 @@ AddSci::AddSci(QWidget *parent) :
     ui->button_alive->setAutoExclusive(true);
 }
 
-void AddSci::addscientist()
+bool AddSci::addscientist()
 {
     QString name = ui->line_name->text();
     QString yob = ui->line_yob->text();
     QString yod;
     QString gender = ui->comboBox_gender->currentText();
+
+    if (name.isEmpty())
+    {
+        ui->line_name->setText("Name cannot be empty");
+        return false;
+    }
+    if (yob.isEmpty())
+    {
+        ui->line_yob->setText("Year of birth cannot be empty");
+        return false;
+    }
+
     if(ui->button_alive->isChecked())
         yod = "0";
     else if(ui->button_dead->isChecked())
         yod = ui->line_yod->text();
 
-
-    bool success = serv.addScientist(name, yob, yod, gender);
-
+    return serv.addScientist(name, yob, yod, gender);
 }
 
 AddSci::~AddSci()
@@ -34,12 +44,14 @@ AddSci::~AddSci()
 
 void AddSci::on_button_add_clicked()
 {
-    addscientist();
-    close();
-    SciWindow SciWin;
-    SciWin.displayAllScientists("");
-    ui->line_name->clear();
-    ui->line_yob->clear();
+    if (addscientist())
+    {
+        close();
+        SciWindow SciWin;
+        SciWin.displayAllScientists("");
+        ui->line_name->clear();
+        ui->line_yob->clear();
+    }
 }
 
 void AddSci::on_button_cancel_clicked()

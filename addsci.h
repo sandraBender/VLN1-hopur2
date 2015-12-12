@@ -13,7 +13,7 @@ class AddSci : public QDialog
 
 public:
     explicit AddSci(QWidget *parent = 0);
-    void addscientist();
+    bool addscientist();
     ~AddSci();
 
 private slots:
