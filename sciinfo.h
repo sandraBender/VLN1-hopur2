@@ -2,6 +2,7 @@
 #define SCIINFO_H
 
 #include <QDialog>
+#include "scientist.h"
 
 namespace Ui {
 class sciinfo;
@@ -17,7 +18,7 @@ public:
 
 private:
     Ui::sciinfo *ui;
-    void setInfo();
+    void setInfo(QString name, vector<Scientist> currentscis);
 };
 
 #endif // SCIINFO_H

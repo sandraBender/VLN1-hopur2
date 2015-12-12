@@ -6,9 +6,11 @@ sciinfo::sciinfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sciinfo)
 {
-
+    SciWindow sw;
+    QString name = sw.getName();
+    vector<Scientist> currentscis = sw.getCurrent();
+    setInfo(name, currentscis);
     ui->setupUi(this);
-    setInfo();
 }
 
 sciinfo::~sciinfo()
@@ -16,15 +18,12 @@ sciinfo::~sciinfo()
     delete ui;
 }
 
-void sciinfo::setInfo()
+void sciinfo::setInfo(QString name, vector<Scientist> currentscis)
 {
-    SciWindow sw;
-    QString name = sw.getName();
     string name1 = name.toStdString();
     QString yob;
     QString yod;
     string tempgender;
-    vector<Scientist> currentscis = sw.getCurrent();
 
     for(unsigned int i = 0; i < currentscis.size(); i++)
         if(currentscis[i].getName() == name1){

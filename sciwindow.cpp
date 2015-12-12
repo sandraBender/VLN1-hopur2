@@ -56,7 +56,9 @@ vector<Scientist> SciWindow::getCurrent()
 
 QString SciWindow::getName()
 {
-    return ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
+    QString currentname = ui->table_scientist->item(0, 0)->text();
+
+    return currentname;
 }
 
 void SciWindow::displayScientists(std::vector<Scientist> scivec)
