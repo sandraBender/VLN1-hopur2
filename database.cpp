@@ -56,22 +56,44 @@ vector<Computer> database::createCompVec(QString command)
 }
 
 //Function to add entries to Scientists table
-void database::editData(QString name, QString yob, QString yod, QString gender)
+bool database::editData(QString name, QString yob, QString yod, QString gender)
 {
+    string inputName = name.toUtf8().constData();
+    bool scientistAlreadyExists = checkScientistOrComputerExistence(inputName, false);
 
-    QString command = "INSERT INTO Scientists (Name, YearOfBirth, YearOfDeath, Gender) VALUES ('" + name + "'," + yob + "," + yod + ",'" + gender + "')";
-    query.exec(command);
+    if (scientistAlreadyExists == false)
+    {
+        QString command = "INSERT INTO Scientists (Name, YearOfBirth, YearOfDeath, Gender) VALUES ('" + name + "'," + yob + "," + yod + ",'" + gender + "')";
+        query.exec(command);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //Function to add entries to Computers table
-void database::editDataComp(QString name, QString buildYear, QString builtOrNot, QString type)
+bool database::editDataComp(QString name, QString buildYear, QString builtOrNot, QString type)
 {
-    QString command = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "', " + buildYear + ", " + builtOrNot + ",'" + type + "')";
-    query.exec(command);
+    string inputName = name.toUtf8().constData();
+    bool computerAlreadyExists = checkScientistOrComputerExistence(inputName, true);
+
+    if (computerAlreadyExists == false)
+    {
+        QString command = "INSERT INTO Computers (Name, BuildYear, builtOrNot, Type) VALUES ('" + name + "', " + buildYear + ", " + builtOrNot + ",'" + type + "')";
+        query.exec(command);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //Function to Scientists
-vector<Scientist> database::sortSci(char number){
+vector<Scientist> database::sortSci(char number)
+{
     QString command;
     vector<Scientist> vec;
     switch (number) {
@@ -102,7 +124,8 @@ vector<Scientist> database::sortSci(char number){
     return vec;
 }
 
-vector<Computer> database::sortCom(char number){
+vector<Computer> database::sortCom(char number)
+{
     QString command;
     vector<Computer> vec;
     switch (number) {
@@ -130,7 +153,8 @@ vector<Computer> database::sortCom(char number){
 }
 
 //Function to sort Scientists
-vector<Scientist> database::searchSci(string searchStr ,char number){
+vector<Scientist> database::searchSci(string searchStr ,char number)
+{
     QString command;
     vector<Scientist> vec;
     switch (number) {
@@ -157,7 +181,8 @@ vector<Scientist> database::searchSci(string searchStr ,char number){
 }
 
 //Function to searc for Computers
-vector<Computer> database::searchCom(string searchStr ,char number){
+vector<Computer> database::searchCom(string searchStr ,char number)
+{
     vector<Computer> vec;
     QString command;
     switch (number) {
@@ -184,8 +209,8 @@ vector<Computer> database::searchCom(string searchStr ,char number){
 }
 
 //Function to delete from Scientists
-void database::deleteSC(char number, QString name){
-
+void database::deleteSC(char number, QString name)
+{
     QString command;
     if (number == '1'){
         command = "DELETE FROM Scientists WHERE Name = '" + name + "'";
@@ -208,8 +233,6 @@ bool database::closeDatabase()
 //Function to add and remove relationship between Scientist and Computer
 void database::addDeleteLink(string scientist, string computer, char number) //Add = 0, delete = 1
 {
-
-
     query.prepare("SELECT ID FROM Scientists WHERE name LIKE '%' ||:scientist|| '%'");
     query.bindValue(":scientist", QString::fromStdString(scientist));
     query.exec();
@@ -234,6 +257,7 @@ void database::addDeleteLink(string scientist, string computer, char number) //A
     query.bindValue(":computerID", QString::fromStdString(computerID));
     query.exec();
     query.next();
+    //return true;
 }
 
 //Function to link Scientists and Computers
@@ -253,4 +277,29 @@ vector<string> database::getRelations()
     }
 
     return vec;
+}
+
+bool database::checkScientistOrComputerExistence(string searchString, bool sciOrComp)
+{
+    if (sciOrComp == false) //searchString = Scientist
+    {
+        query.prepare("SELECT * FROM Scientists WHERE Name = :name");
+        query.bindValue(":name", QString::fromStdString(searchString));
+    }
+    else //searchString = Computer
+    {
+        query.prepare("SELECT * FROM Computers WHERE Name = :name");
+        query.bindValue(":name", QString::fromStdString(searchString));
+    }
+
+    query.exec();
+
+    if (!query.next())
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }

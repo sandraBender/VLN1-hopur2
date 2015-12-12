@@ -5,13 +5,13 @@ Service::Service()
 
 }
 //adds scientists to the list
-void Service::addScientist(QString name, QString yob, QString yod, QString gender)
-{   
-    data.editData(name, yob, yod, gender);
-}
-void Service::addComputer(QString name, QString buildYear, QString builtOrNot, QString type)
+bool Service::addScientist(QString name, QString yob, QString yod, QString gender)
 {
-        data.editDataComp(name, buildYear, builtOrNot, type);
+     return data.editData(name, yob, yod, gender);
+}
+bool Service::addComputer(QString name, QString buildYear, QString builtOrNot, QString type)
+{
+    return data.editDataComp(name, buildYear, builtOrNot, type);
 }
 
 // sorts the list

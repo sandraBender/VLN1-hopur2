@@ -33,7 +33,16 @@ void AddComp::addcomputer()
         builtornot = "0";
     }
     QString type = ui->combo_type->currentText();
-    serv.addComputer(name, buildyear, builtornot, type);
+    bool success = serv.addComputer(name, buildyear, builtornot, type);
+
+    if (success)
+    {
+        this->done(0);
+    }
+    else
+    {
+        this->done(-1);
+    }
 }
 
 

@@ -15,8 +15,8 @@ class Service
 {
 public:
     Service();
-    void addScientist(QString name, QString yob, QString yod, QString gender);
-    void addComputer(QString name, QString buildYear, QString builtOrNot, QString type);
+    bool addScientist(QString name, QString yob, QString yod, QString gender);
+    bool addComputer(QString name, QString buildYear, QString builtOrNot, QString type);
     vector<Computer> sortCom(char number);
     vector<Scientist> sortSci(char number);
     vector<Scientist> searchSci(string searchStr, char number);
@@ -28,7 +28,6 @@ public:
     vector<string> getRelations();
 private:
     database data;
-
 };
 
 #endif // SERVICE_H

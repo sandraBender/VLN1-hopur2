@@ -17,13 +17,13 @@ void AddSci::addscientist()
     QString yob = ui->line_yob->text();
     QString yod;
     QString gender = ui->comboBox_gender->currentText();
-    if(ui->button_alive)
+    if(ui->button_alive->isChecked())
         yod = "0";
-    else if(ui->button_dead)
+    else if(ui->button_dead->isChecked())
         yod = ui->line_yod->text();
 
 
-    serv.addScientist(name, yob, yod, gender);
+    bool success = serv.addScientist(name, yob, yod, gender);
 
 }
 
@@ -35,9 +35,11 @@ AddSci::~AddSci()
 void AddSci::on_button_add_clicked()
 {
     addscientist();
-    SciWindow yee;
     close();
-    yee.displayAllScientists("");
+    SciWindow SciWin;
+    SciWin.displayAllScientists("");
+    ui->line_name->clear();
+    ui->line_yob->clear();
 }
 
 void AddSci::on_button_cancel_clicked()

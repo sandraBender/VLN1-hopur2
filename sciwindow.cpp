@@ -18,7 +18,19 @@ SciWindow::~SciWindow()
 
 void SciWindow::on_button_addsci_clicked()
 {
-    addScientist.exec();
+    int addScientistReturnValue = addScientist.exec();
+
+    if (addScientistReturnValue == 0)
+    {
+        //ui->input_filter_students->setText("");
+        displayAllScientists("");
+
+        //ui->statusBar->showMessage("Successfully added student", 1500);
+    }
+    else
+    {
+        // DISPLAY AN ERROR
+    }
 }
 
 
@@ -72,6 +84,4 @@ void SciWindow::on_button_remove_student_clicked()
    serv.deleteData('1', sciName);
 
    displayAllScientists("");
-
-
 }
