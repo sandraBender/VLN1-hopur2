@@ -49,8 +49,10 @@ void CompWindow::on_line_filter_computers_textChanged(const QString &arg1)
 
 void CompWindow::displayAllComputers(string searchStr)
 {
+    ui->table_computers->setSortingEnabled(false);
     vector<Computer> vec = serv.searchCom(searchStr, '1');
     displayComputers(vec);
+    ui->table_computers->setSortingEnabled(true);
 }
 
 void CompWindow::displayComputers(std::vector<Computer> compVec)

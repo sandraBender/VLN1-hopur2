@@ -73,7 +73,7 @@ public:
         table_scientist->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         table_scientist->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
-        table_scientist->setSortingEnabled(true);
+        table_scientist->setSortingEnabled(false);
         table_scientist->horizontalHeader()->setCascadingSectionResizes(false);
         table_scientist->horizontalHeader()->setDefaultSectionSize(80);
         table_scientist->horizontalHeader()->setStretchLastSection(true);

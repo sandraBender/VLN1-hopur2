@@ -63,7 +63,7 @@ public:
         table_computers->setObjectName(QStringLiteral("table_computers"));
         table_computers->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
-        table_computers->setSortingEnabled(true);
+        table_computers->setSortingEnabled(false);
         table_computers->horizontalHeader()->setCascadingSectionResizes(true);
         table_computers->horizontalHeader()->setDefaultSectionSize(80);
         table_computers->horizontalHeader()->setStretchLastSection(true);

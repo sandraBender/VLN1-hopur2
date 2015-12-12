@@ -42,9 +42,10 @@ void SciWindow::on_filter_scientists_textChanged()
 
 void SciWindow::displayAllScientists(string searchstr)
 {
+    ui->table_scientist->setSortingEnabled(false);
     vector<Scientist> vec = serv.searchSci(searchstr, '1');
     displayScientists(vec);
-
+    ui->table_scientist->setSortingEnabled(true);
 }
 
 void SciWindow::displayScientists(std::vector<Scientist> scivec)
