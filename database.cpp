@@ -13,9 +13,6 @@ bool database::getDatabase()
     QString dbName = "Database.sqlite";
         db.setDatabaseName(dbName);
 
-        cout << "DB opening cerimony commencing! " << endl;
-        //To confirm when DB opening happens.
-
     return db.open();
 }
 
