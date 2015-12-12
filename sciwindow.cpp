@@ -1,5 +1,6 @@
 #include "sciwindow.h"
 #include "ui_sciwindow.h"
+#include "sciinfo.h"
 
 using namespace std;
 
@@ -113,5 +114,13 @@ void SciWindow::on_button_remove_student_clicked()
 
 void SciWindow::on_button_close_clicked()
 {
+    ui->filter_scientists->clear();
     close();
+}
+
+void SciWindow::on_table_scientist_doubleClicked(const QModelIndex &index)
+{
+    sciinfo info;
+    info.exec();
+
 }

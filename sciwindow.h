@@ -34,6 +34,8 @@ private slots:
 
     void on_button_close_clicked();
 
+    void on_table_scientist_doubleClicked(const QModelIndex &index);
+
 private:
     void displayScientists(std::vector<Scientist> scivec);
     Ui::SciWindow *ui;
