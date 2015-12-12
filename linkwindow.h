@@ -2,6 +2,9 @@
 #define LINKWINDOW_H
 
 #include <QDialog>
+#include <vector>
+#include "service.h"
+
 
 namespace Ui {
 class LinkWindow;
@@ -19,6 +22,11 @@ private slots:
     void on_Button_link_clicked();
 
 private:
+    void displayAllScientists();
+    void displayAllComputers();
+    void displayScientists(vector<Scientist> scVec);
+    void displayComputers(vector<Computer> comVec);
+    Service service;
     Ui::LinkWindow *ui;
 };
 
