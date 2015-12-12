@@ -33,11 +33,9 @@ public:
             LinkWindow->setObjectName(QStringLiteral("LinkWindow"));
         LinkWindow->resize(465, 447);
         list_scientists = new QListWidget(LinkWindow);
-        new QListWidgetItem(list_scientists);
         list_scientists->setObjectName(QStringLiteral("list_scientists"));
         list_scientists->setGeometry(QRect(10, 10, 441, 192));
         list_computers = new QListWidget(LinkWindow);
-        new QListWidgetItem(list_computers);
         list_computers->setObjectName(QStringLiteral("list_computers"));
         list_computers->setGeometry(QRect(10, 210, 441, 192));
         Button_link = new QPushButton(LinkWindow);
@@ -52,21 +50,7 @@ public:
 
     void retranslateUi(QDialog *LinkWindow)
     {
-        LinkWindow->setWindowTitle(QApplication::translate("LinkWindow", "Dialog", 0));
-
-        const bool __sortingEnabled = list_scientists->isSortingEnabled();
-        list_scientists->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = list_scientists->item(0);
-        ___qlistwidgetitem->setText(QApplication::translate("LinkWindow", "Name of scientists", 0));
-        list_scientists->setSortingEnabled(__sortingEnabled);
-
-
-        const bool __sortingEnabled1 = list_computers->isSortingEnabled();
-        list_computers->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem1 = list_computers->item(0);
-        ___qlistwidgetitem1->setText(QApplication::translate("LinkWindow", "Name of computers", 0));
-        list_computers->setSortingEnabled(__sortingEnabled1);
-
+        LinkWindow->setWindowTitle(QString());
         Button_link->setText(QApplication::translate("LinkWindow", "Link", 0));
     } // retranslateUi
 

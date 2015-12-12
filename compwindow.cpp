@@ -2,7 +2,7 @@
 #include "ui_compwindow.h"
 #include "addcomp.h"
 #include <QStatusBar>
-
+#include "compinfo.h"
 using namespace std;
 
 CompWindow::CompWindow(QWidget *parent) :
@@ -93,4 +93,12 @@ void CompWindow::on_button_remove_selected_clicked()
     ui->line_filter_computers->clear();
     ui->label_Remove_success->setText("Computer was successfully removed");
     displayAllComputers("");
+}
+
+void CompWindow::on_table_computers_doubleClicked(const QModelIndex &index)
+{
+    QString name = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
+    compinfo info;
+    info.setInfo(name, currentlyDisplayed);
+    info.exec();
 }

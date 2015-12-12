@@ -6,10 +6,7 @@ sciinfo::sciinfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sciinfo)
 {
-    SciWindow sw;
-    QString name = sw.getName();
-    vector<Scientist> currentscis = sw.getCurrent();
-    setInfo(name, currentscis);
+
     ui->setupUi(this);
 }
 
@@ -27,19 +24,24 @@ void sciinfo::setInfo(QString name, vector<Scientist> currentscis)
 
     for(unsigned int i = 0; i < currentscis.size(); i++)
         if(currentscis[i].getName() == name1){
-            yob = currentscis[i].getYob();
-            yod = currentscis[i].getYod();
+            yob = QString::number(currentscis[i].getYob());
+            yod = QString::number(currentscis[i].getYod());
             tempgender = currentscis[i].getGender();
            }
 
     QString gender = QString::fromStdString(tempgender);
     QString bornText;
     if(yod == "0")
-        bornText = yob + " - " + yod;
+        bornText = yob + "- now";
     else
-        bornText = yob + "- Now";
+        bornText = yob + " - " + yod;
 
     ui->label_name->setText(name);
     ui->label_born->setText(bornText);
     ui->label_gender->setText(gender);
+}
+
+void sciinfo::on_button_close_clicked()
+{
+    close();
 }

@@ -30,6 +30,8 @@ private slots:
     void on_button_remove_selected_clicked();
 
 
+    void on_table_computers_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::CompWindow *ui;
     void displayComputers(std::vector<Computer> compVec);

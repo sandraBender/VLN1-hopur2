@@ -49,17 +49,6 @@ void SciWindow::displayAllScientists(string searchstr)
     ui->table_scientist->setSortingEnabled(true);
 }
 
-vector<Scientist> SciWindow::getCurrent()
-{
-    return currentlyDisplayed;
-}
-
-QString SciWindow::getName()
-{
-    QString currentname = ui->table_scientist->item(0, 0)->text();
-
-    return currentname;
-}
 
 void SciWindow::displayScientists(std::vector<Scientist> scivec)
 {
@@ -122,7 +111,9 @@ void SciWindow::on_button_close_clicked()
 
 void SciWindow::on_table_scientist_doubleClicked(const QModelIndex &index)
 {
+    QString name = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
     sciinfo info;
+    info.setInfo(name, currentlyDisplayed);
     info.exec();
 
 }

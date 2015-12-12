@@ -14,11 +14,14 @@ class sciinfo : public QDialog
 
 public:
     explicit sciinfo(QWidget *parent = 0);
+    void setInfo(QString name, vector<Scientist> currentscis);
     ~sciinfo();
+
+private slots:
+    void on_button_close_clicked();
 
 private:
     Ui::sciinfo *ui;
-    void setInfo(QString name, vector<Scientist> currentscis);
 };
 
 #endif // SCIINFO_H
