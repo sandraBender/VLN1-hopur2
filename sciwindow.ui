@@ -86,6 +86,11 @@
          </column>
          <column>
           <property name="text">
+           <string>Age</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
            <string>Gender</string>
           </property>
           <property name="textAlignment">
