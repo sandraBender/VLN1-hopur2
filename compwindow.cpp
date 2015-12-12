@@ -73,7 +73,7 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
         ui->table_computers->setItem(row, 0, new QTableWidgetItem(name));
         ui->table_computers->setItem(row, 1, new QTableWidgetItem(yearBuilt));
         ui->table_computers->setItem(row, 2, new QTableWidgetItem(type));
-
+        ui->table_computers->setColumnWidth(0,150);
 
     }
     currentlyDisplayed = compVec;

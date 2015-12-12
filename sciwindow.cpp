@@ -66,12 +66,13 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
         ui->table_scientist->setItem(row, 1, new QTableWidgetItem(yob));
         ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yod));
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(gender));
+        ui->table_scientist->setColumnWidth(0, 200);
 
     }
     currentlyDisplayed = scivec;
 }
 
-void SciWindow::on_table_scientist_clicked(const QModelIndex &index)
+void SciWindow::on_table_scientist_clicked()
 {
     ui->button_remove_student->setEnabled(true);
 }

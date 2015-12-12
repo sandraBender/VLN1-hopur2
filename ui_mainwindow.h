@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -13,12 +13,15 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,9 +31,12 @@ class Ui_MainWindow
 public:
     QAction *actionDatabase;
     QWidget *centralWidget;
+    QVBoxLayout *verticalLayout;
     QTextBrowser *textBrowser;
-    QPushButton *button_scientist;
+    QSpacerItem *horizontalSpacer;
+    QHBoxLayout *horizontalLayout;
     QPushButton *button_computer;
+    QPushButton *button_scientist;
     QPushButton *button_relation;
     QPushButton *button_quit;
     QToolBar *mainToolBar;
@@ -40,26 +46,51 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(461, 406);
+        MainWindow->resize(416, 362);
         actionDatabase = new QAction(MainWindow);
         actionDatabase->setObjectName(QStringLiteral("actionDatabase"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        verticalLayout = new QVBoxLayout(centralWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         textBrowser = new QTextBrowser(centralWidget);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(10, 20, 441, 192));
-        button_scientist = new QPushButton(centralWidget);
-        button_scientist->setObjectName(QStringLiteral("button_scientist"));
-        button_scientist->setGeometry(QRect(10, 220, 115, 32));
+
+        verticalLayout->addWidget(textBrowser);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetNoConstraint);
         button_computer = new QPushButton(centralWidget);
         button_computer->setObjectName(QStringLiteral("button_computer"));
-        button_computer->setGeometry(QRect(160, 220, 115, 32));
+
+        horizontalLayout->addWidget(button_computer);
+
+        button_scientist = new QPushButton(centralWidget);
+        button_scientist->setObjectName(QStringLiteral("button_scientist"));
+
+        horizontalLayout->addWidget(button_scientist);
+
         button_relation = new QPushButton(centralWidget);
         button_relation->setObjectName(QStringLiteral("button_relation"));
-        button_relation->setGeometry(QRect(310, 220, 115, 32));
+
+        horizontalLayout->addWidget(button_relation);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
         button_quit = new QPushButton(centralWidget);
         button_quit->setObjectName(QStringLiteral("button_quit"));
-        button_quit->setGeometry(QRect(160, 270, 115, 32));
+
+        verticalLayout->addWidget(button_quit);
+
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -67,6 +98,7 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(textBrowser, button_quit);
 
         retranslateUi(MainWindow);
         QObject::connect(button_quit, SIGNAL(clicked()), MainWindow, SLOT(close()));
@@ -81,18 +113,18 @@ public:
         textBrowser->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'.SF NS Text'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface'; font-size:36pt; font-weight:600;\">Welcome</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.Helvetica Neue DeskInterface'; font-size:18pt; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helveti"
-                        "ca Neue DeskInterface';\">Here you can see list of computers and scientists</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface';\">You can add, delete and search in the list</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface';\">You can also add, delete or see relations between computer and scientist</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface';\">Lets get started</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:"
-                        "0px; font-family:'.Helvetica Neue DeskInterface';\"><br /></p></body></html>", 0));
-        button_scientist->setText(QApplication::translate("MainWindow", "Scientist", 0));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.He"
+                        "lvetica Neue DeskInterface'; font-size:13pt;\">Here you can see a list of computers and scientists</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface'; font-size:13pt;\">You can add, delete and search in the list</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface'; font-size:13pt;\">You can also add, delete or see relations between computer and scientist</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'.Helvetica Neue DeskInterface'; font-size:13pt;\">Lets get started</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0"
+                        "px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.Helvetica Neue DeskInterface'; font-size:13pt;\"><br /></p></body></html>", 0));
         button_computer->setText(QApplication::translate("MainWindow", "Computer", 0));
+        button_scientist->setText(QApplication::translate("MainWindow", "Scientist", 0));
         button_relation->setText(QApplication::translate("MainWindow", "Relation", 0));
         button_quit->setText(QApplication::translate("MainWindow", "Quit", 0));
     } // retranslateUi

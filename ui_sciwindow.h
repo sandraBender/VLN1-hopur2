@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sciwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -57,10 +57,13 @@ public:
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         table_scientist->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
         table_scientist->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        __qtablewidgetitem2->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
         table_scientist->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        __qtablewidgetitem3->setTextAlignment(Qt::AlignLeading|Qt::AlignVCenter);
         table_scientist->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
         table_scientist->setEnabled(true);
@@ -70,6 +73,8 @@ public:
         table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_scientist->setSortingEnabled(true);
         table_scientist->horizontalHeader()->setCascadingSectionResizes(false);
+        table_scientist->horizontalHeader()->setDefaultSectionSize(80);
+        table_scientist->horizontalHeader()->setStretchLastSection(true);
         table_scientist->verticalHeader()->setVisible(false);
         table_scientist->verticalHeader()->setCascadingSectionResizes(false);
 

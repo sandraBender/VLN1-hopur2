@@ -25,7 +25,7 @@ private slots:
 
     void on_filter_scientists_textChanged();
 
-    void on_table_scientist_clicked(const QModelIndex &index);
+    void on_table_scientist_clicked();
 
     void on_button_remove_student_clicked();
 

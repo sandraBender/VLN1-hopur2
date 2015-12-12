@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'compwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -40,7 +40,7 @@ public:
     {
         if (CompWindow->objectName().isEmpty())
             CompWindow->setObjectName(QStringLiteral("CompWindow"));
-        CompWindow->resize(400, 363);
+        CompWindow->resize(356, 363);
         layoutWidget = new QWidget(CompWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(7, 4, 341, 351));
@@ -65,6 +65,9 @@ public:
         table_computers->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_computers->setSortingEnabled(true);
+        table_computers->horizontalHeader()->setCascadingSectionResizes(true);
+        table_computers->horizontalHeader()->setDefaultSectionSize(80);
+        table_computers->horizontalHeader()->setStretchLastSection(true);
         table_computers->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(table_computers);
