@@ -15,6 +15,9 @@ public:
     explicit LinkWindow(QWidget *parent = 0);
     ~LinkWindow();
 
+private slots:
+    void on_Button_link_clicked();
+
 private:
     Ui::LinkWindow *ui;
 };

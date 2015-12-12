@@ -12,3 +12,9 @@ LinkWindow::~LinkWindow()
 {
     delete ui;
 }
+
+void LinkWindow::on_Button_link_clicked()
+{
+
+}
+
