@@ -19,8 +19,21 @@ CompWindow::~CompWindow()
 
 void CompWindow::on_button_add_new_clicked()
 {
-    AddComp addcomputer;
-    addcomputer.exec();
+    AddComp addComputer;
+
+    int addComputerReturnValue = addComputer.exec();
+
+    if (addComputerReturnValue == 0)
+    {
+        //ui->input_filter_students->setText("");
+        displayAllComputers("");
+
+        //ui->statusBar->showMessage("Successfully added student", 1500);
+    }
+    else
+    {
+        // DISPLAY AN ERROR
+    }
 }
 
 void CompWindow::on_button_close_clicked()

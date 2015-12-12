@@ -38,7 +38,6 @@ void SciWindow::on_filter_scientists_textChanged()
 {
     string searchStr = ui->filter_scientists->text().toStdString();
     displayAllScientists(searchStr);
-
 }
 
 void SciWindow::displayAllScientists(string searchstr)
