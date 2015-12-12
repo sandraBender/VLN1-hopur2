@@ -16,6 +16,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
@@ -33,6 +34,7 @@ public:
     QTableWidget *table_scientist;
     QPushButton *button_remove_student;
     QPushButton *button_addsci;
+    QLabel *label_successRemove;
 
     void setupUi(QDialog *SciWindow)
     {
@@ -91,6 +93,11 @@ public:
 
         verticalLayout->addWidget(button_addsci);
 
+        label_successRemove = new QLabel(SciWindow);
+        label_successRemove->setObjectName(QStringLiteral("label_successRemove"));
+
+        verticalLayout->addWidget(label_successRemove);
+
 
         verticalLayout_2->addLayout(verticalLayout);
 
@@ -117,6 +124,7 @@ public:
         ___qtablewidgetitem3->setText(QApplication::translate("SciWindow", "Gender", 0));
         button_remove_student->setText(QApplication::translate("SciWindow", "Remove selected scientist", 0));
         button_addsci->setText(QApplication::translate("SciWindow", "Add New", 0));
+        label_successRemove->setText(QString());
     } // retranslateUi
 
 };

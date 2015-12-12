@@ -111,6 +111,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QLabel" name="label_successRemove">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>

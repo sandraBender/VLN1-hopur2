@@ -18,19 +18,19 @@ SciWindow::~SciWindow()
 
 void SciWindow::on_button_addsci_clicked()
 {
+    ui->label_successRemove->setText("");
     int addScientistReturnValue = addScientist.exec();
 
     if (addScientistReturnValue == 0)
     {
-        //ui->input_filter_students->setText("");
+        ui->label_successRemove->setText("Successfully added scientist");
         displayAllScientists("");
-
-        //ui->statusBar->showMessage("Successfully added student", 1500);
     }
     else
     {
-        // DISPLAY AN ERROR
+        ui->label_successRemove->setText("<span style = 'color: #DC143C' > Something went wrong please try again </span>");
     }
+
 }
 
 
@@ -82,6 +82,7 @@ void SciWindow::on_button_remove_student_clicked()
    QString sciName = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
 
    serv.deleteData('1', sciName);
+   ui->label_successRemove->setText("Scientist was successfully removed");
 
    displayAllScientists("");
 }

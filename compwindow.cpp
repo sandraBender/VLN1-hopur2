@@ -21,19 +21,18 @@ CompWindow::~CompWindow()
 void CompWindow::on_button_add_new_clicked()
 {
     AddComp addComputer;
+    ui->label_Remove_success->setText("");
 
     int addComputerReturnValue = addComputer.exec();
 
     if (addComputerReturnValue == 0)
     {
-        //ui->input_filter_students->setText("");
+        ui->label_Remove_success->setText("Successfully added computer");
         displayAllComputers("");
-
-        //ui->statusBar->showMessage("Successfully added student", 1500);
     }
     else
     {
-        // DISPLAY AN ERROR
+        ui->label_Remove_success->setText("<span style = 'color: #DC143C' > Something went wrong please try again </span>");
     }
 }
 
@@ -90,5 +89,6 @@ void CompWindow::on_button_remove_selected_clicked()
     QString compname = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
     serv.deleteData('2', compname);
     ui->line_filter_computers->clear();
+    ui->label_Remove_success->setText("<span style = 'color: #DC143C' > Computer was successfully removed </span>");
     displayAllComputers("");
 }
