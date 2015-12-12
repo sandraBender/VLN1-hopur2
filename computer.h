@@ -15,12 +15,11 @@ class Computer {
 public:
         Computer();
         Computer(string Name, int yearInvented, bool Built, string Type);
-        friend ostream& operator <<(ostream& outs, Computer comp);
+
         void operator =(const Computer& t);
         string getName();
         int getYearInvented();
         bool getBuiltOrNot();
-        string built(bool yesOrNo);
         string getType();
     private:
         string name;

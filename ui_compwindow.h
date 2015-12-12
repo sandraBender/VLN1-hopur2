@@ -16,6 +16,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
@@ -30,6 +31,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLineEdit *line_filter_computers;
     QTableWidget *table_computers;
+    QLabel *label_Remove_success;
     QPushButton *button_remove_selected;
     QHBoxLayout *horizontalLayout;
     QPushButton *button_add_new;
@@ -68,6 +70,12 @@ public:
         table_computers->verticalHeader()->setVisible(false);
 
         verticalLayout->addWidget(table_computers);
+
+        label_Remove_success = new QLabel(CompWindow);
+        label_Remove_success->setObjectName(QStringLiteral("label_Remove_success"));
+        label_Remove_success->setEnabled(true);
+
+        verticalLayout->addWidget(label_Remove_success);
 
         button_remove_selected = new QPushButton(CompWindow);
         button_remove_selected->setObjectName(QStringLiteral("button_remove_selected"));
@@ -109,6 +117,7 @@ public:
         ___qtablewidgetitem1->setText(QApplication::translate("CompWindow", "Build Year", 0));
         QTableWidgetItem *___qtablewidgetitem2 = table_computers->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("CompWindow", "Type", 0));
+        label_Remove_success->setText(QString());
         button_remove_selected->setText(QApplication::translate("CompWindow", "Remove selected computer", 0));
         button_add_new->setText(QApplication::translate("CompWindow", "Add new", 0));
         button_close->setText(QApplication::translate("CompWindow", "Close", 0));

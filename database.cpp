@@ -91,67 +91,6 @@ bool database::editDataComp(QString name, QString buildYear, QString builtOrNot,
     }
 }
 
-//Function to Scientists
-vector<Scientist> database::sortSci(char number)
-{
-    QString command;
-    vector<Scientist> vec;
-    switch (number) {
-    case '1':
-        command = "SELECT * FROM Scientists ORDER BY name";
-        vec = createSciVec(command);
-        break;
-    case '2':
-        command = "SELECT * FROM Scientists ORDER BY name DESC";
-        vec = createSciVec(command);
-        break;
-    case '3':
-        command = "SELECT * FROM Scientists ORDER BY YearOfBirth ASC, name";
-        vec = createSciVec(command);
-        break;
-    case '4':
-        command = "SELECT * FROM Scientists ORDER BY YearOfBirth DESC, name";
-        vec = createSciVec(command);
-        break;
-    case '5':
-        command = "SELECT * FROM Scientists ORDER BY gender, name";
-        vec = createSciVec(command);
-        break;
-    default:
-        cout << "Nothing happend!! " << endl;
-        break;
-    }
-    return vec;
-}
-
-vector<Computer> database::sortCom(char number)
-{
-    QString command;
-    vector<Computer> vec;
-    switch (number) {
-    case '1':
-        command = "SELECT * FROM Computers ORDER BY name ASC";
-        vec = createCompVec(command);
-        break;
-    case '2':
-        command = command = "SELECT * FROM Computers ORDER BY name DESC";;
-        vec = createCompVec(command);
-        break;
-    case '3':
-        command = command = "SELECT * FROM Computers ORDER BY BuildYear ASC, name";
-        vec = createCompVec(command);
-        break;
-    case '4':
-        command = "SELECT * FROM Computers ORDER BY BuildYear DESC, name";
-        vec = createCompVec(command);
-        break;
-    default:
-        cout << "Nothing happend!! " << endl;
-        break;
-    }
-    return vec;
-}
-
 //Function to sort Scientists
 vector<Scientist> database::searchSci(string searchStr ,char number)
 {

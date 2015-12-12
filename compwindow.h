@@ -29,7 +29,7 @@ private slots:
 
     void on_button_remove_selected_clicked();
 
-    
+
 private:
     Ui::CompWindow *ui;
     void displayComputers(std::vector<Computer> compVec);

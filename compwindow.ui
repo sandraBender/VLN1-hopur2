@@ -64,6 +64,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QLabel" name="label_Remove_success">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="button_remove_selected">
        <property name="enabled">
         <bool>false</bool>

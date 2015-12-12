@@ -22,8 +22,6 @@ public:
     vector<Computer> createCompVec(QString command);
     bool editData(QString name, QString yob, QString yod, QString gender);
     bool editDataComp(QString name, QString buildYear, QString builtOrNot, QString type);
-    vector<Scientist> sortSci(char number);
-    vector<Computer> sortCom(char number);
     vector<Scientist> searchSci(string searchStr ,char number);
     vector<Computer> searchCom(string searchStr ,char number);
     void deleteSC(char number, QString name);

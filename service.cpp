@@ -14,18 +14,6 @@ bool Service::addComputer(QString name, QString buildYear, QString builtOrNot, Q
     return data.editDataComp(name, buildYear, builtOrNot, type);
 }
 
-// sorts the list
-vector<Computer> Service::sortCom(char number)
-{
-    vector<Computer> vec = data.sortCom(number);
-    return vec;
-}
-
-vector<Scientist> Service::sortSci(char number)
-{
-    vector<Scientist> vec = data.sortSci(number);
-    return vec;
-}
 vector<Computer> Service::searchCom(string searchStr ,char number){
 
     vector<Computer> vec = data.searchCom(searchStr, number);

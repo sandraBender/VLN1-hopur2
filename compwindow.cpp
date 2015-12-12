@@ -1,6 +1,7 @@
 #include "compwindow.h"
 #include "ui_compwindow.h"
 #include "addcomp.h"
+#include <QStatusBar>
 
 using namespace std;
 
