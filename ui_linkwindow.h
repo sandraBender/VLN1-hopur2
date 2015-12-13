@@ -38,6 +38,7 @@ public:
     QLabel *label_known_relations;
     QTableWidget *table_known_relations;
     QPushButton *button_remove_link;
+    QLabel *label_link_error;
 
     void setupUi(QDialog *LinkWindow)
     {
@@ -104,6 +105,9 @@ public:
 
         verticalLayout_2->addWidget(button_remove_link);
 
+        label_link_error = new QLabel(LinkWindow);
+        label_link_error->setObjectName(QStringLiteral("label_link_error"));
+        label_link_error->setGeometry(QRect(10, 450, 199, 16));
 
         retranslateUi(LinkWindow);
 
@@ -123,6 +127,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem2 = table_known_relations->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("LinkWindow", "compname", 0));
         button_remove_link->setText(QApplication::translate("LinkWindow", "Remove link", 0));
+        label_link_error->setText(QString());
     } // retranslateUi
 
 };

@@ -6,7 +6,7 @@ LinkWindow::LinkWindow(QWidget *parent) :
     ui(new Ui::LinkWindow)
 {
     ui->setupUi(this);
-
+    ui->label_link_error->clear();
     displayLinks();
     displayAllScientists();
     displayAllComputers();
@@ -18,10 +18,18 @@ LinkWindow::~LinkWindow()
 }
 
 void LinkWindow::on_Button_link_clicked()
-{
+{   ui->label_link_error->clear();
     string compname = ui->list_computers->item(ui->list_computers->currentRow())->text().toStdString();
     string sciname = ui->list_scientists->item(ui->list_scientists->currentRow())->text().toStdString();
 
+    vector<QString> scinames = service.getRelations(1);
+    vector<QString> compnames = service.getRelations(2);
+
+    for(unsigned int i = 0; i < scinames.size(); i++){
+        if(QString::fromStdString(compname) == compnames[i] && QString::fromStdString(sciname) == scinames[i]){
+            ui->label_link_error->setText("<span style = 'color: #DC143C' > Relation already exists </span>");
+        return;}
+    }
     service.addDeleteLink(sciname, compname, '1');
     displayLinks();
 }
