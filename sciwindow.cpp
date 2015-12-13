@@ -43,9 +43,27 @@ void SciWindow::on_filter_scientists_textChanged()
 
 void SciWindow::displayAllScientists(string searchstr)
 {
+    QString qSearchstr = QString::fromStdString(searchstr);
+    QChar c;
+    char select ='1';
+
     ui->table_scientist->setSortingEnabled(false);
-    vector<Scientist> vec = serv.searchSci(searchstr, '1');
+
+    if(searchstr != "")
+    {
+        for(int i=0; i < qSearchstr.length();i++)
+        {
+            c = qSearchstr.at(i);
+            if(c.isDigit())
+                select = '2';
+            else if(searchstr == "" || c.isLetter())
+                select = '1';
+         }
+    }
+
+    vector<Scientist> vec = serv.searchSci(searchstr, select);
     displayScientists(vec);
+
     ui->table_scientist->setSortingEnabled(true);
 }
 

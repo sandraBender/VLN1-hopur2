@@ -5,6 +5,7 @@
 #include "addsci.h"
 #include "service.h"
 #include <vector>
+#include <QChar>
 
 namespace Ui {
 class SciWindow;
