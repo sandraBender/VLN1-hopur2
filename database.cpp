@@ -197,23 +197,33 @@ void database::addDeleteLink(string scientist, string computer, char number) //A
 }
 
 //Function to link Scientists and Computers
-vector<QString> database::getRelations()
+vector<QString> database::getRelations(int number)
 {
     vector<QString> vec;
     QSqlQueryModel model;
-    model.setQuery("SELECT S.Name FROM SciCompLink SCL JOIN Scientists S on S.id = SCL.ScientistID");
-    QSqlQueryModel model2;
-    model2.setQuery("SELECT C.Name FROM SciCompLink SCL JOIN Computers C on C.ID = SCL.ComputerID");
-    for (int i = 0; i < model.rowCount(); ++i)
-    {
-         QString nameSci = model.record(i).value("Name").toString();
-         QString nameComp = model2.record(i).value("Name").toString();
-         QString temp = nameSci + "\t \t links to \t \t " + nameComp;
-         vec.push_back(temp);
-    }
 
-    return vec;
-}
+
+    switch (number) {
+    case 1:{
+        model.setQuery("SELECT S.Name FROM SciCompLink SCL JOIN Scientists S on S.id = SCL.ScientistID");
+        for (int i = 0; i < model.rowCount(); ++i)
+        {
+             QString nameSci = model.record(i).value("Name").toString();
+             vec.push_back(nameSci);
+        }
+        return vec;}
+    case 2:{
+        model.setQuery("SELECT C.Name FROM SciCompLink SCL JOIN Computers C on C.ID = SCL.ComputerID");
+        for (int i = 0; i < model.rowCount(); ++i)
+        {
+             QString nameComp = model.record(i).value("Name").toString();
+             vec.push_back(nameComp);
+        }
+        return vec;}
+    default:
+        break;
+
+}}
 
 bool database::checkScientistOrComputerExistence(string searchString, bool sciOrComp)
 {

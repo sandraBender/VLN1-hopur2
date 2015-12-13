@@ -52,8 +52,8 @@ void Service::addDeleteLink(string scientist, string computer, char number)
 
 }
 
-vector<QString> Service::getRelations()
+vector<QString> Service::getRelations(int number)
 {
-    return data.getRelations();
+    return data.getRelations(number);
 
 }

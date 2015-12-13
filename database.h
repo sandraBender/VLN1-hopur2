@@ -28,7 +28,7 @@ public:
     bool closeDatabase();
     void addDeleteLink(string scientist, string computer, char number);
     void linkChoice();
-    vector<QString> getRelations();
+    vector<QString> getRelations(int number);
     bool checkScientistOrComputerExistence(string searchString, bool sciOrCom);
 private:
     QSqlQuery query;

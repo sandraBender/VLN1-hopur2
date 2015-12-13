@@ -25,7 +25,7 @@ public:
     bool connect();
     bool disconnect();
     void addDeleteLink(string scientist, string computer, char number);
-    vector<QString> getRelations();
+    vector<QString> getRelations(int number);
 private:
     database data;
 };
