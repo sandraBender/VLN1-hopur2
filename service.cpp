@@ -47,22 +47,13 @@ bool Service::disconnect()
 
 void Service::addDeleteLink(string scientist, string computer, char number)
 {
-    database db;
-    if(number == '1')
-    {
-        db.addDeleteLink(scientist, computer, number);
-    }
-     else if(number == '2')
-    {
-        db.addDeleteLink(scientist, computer, number);
-    }
+
+        data.addDeleteLink(scientist, computer, number);
+
 }
 
-vector<string> Service::getRelations()
+vector<QString> Service::getRelations()
 {
-
-    vector<string> vec;
-    vec = data.getRelations();
-    return vec;
+    return data.getRelations();
 
 }

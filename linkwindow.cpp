@@ -18,7 +18,10 @@ LinkWindow::~LinkWindow()
 
 void LinkWindow::on_Button_link_clicked()
 {
+    string compname = ui->list_computers->item(ui->list_computers->currentRow())->text().toStdString();
+    string sciname = ui->list_scientists->item(ui->list_scientists->currentRow())->text().toStdString();
 
+    service.addDeleteLink(sciname, compname, '1');
 }
 
 void LinkWindow::displayAllScientists()
@@ -57,3 +60,22 @@ void LinkWindow::displayComputers(vector<Computer> comVec)
     }
 }
 
+
+void LinkWindow::on_list_scientists_clicked(const QModelIndex &index)
+{
+    sciclicked = true;
+    if(compclicked)
+        ui->Button_link->setEnabled(true);
+}
+
+void LinkWindow::on_list_computers_clicked(const QModelIndex &index)
+{
+    compclicked = true;
+    if(sciclicked)
+        ui->Button_link->setEnabled(true);
+}
+
+void LinkWindow::on_list_known_relations_clicked(const QModelIndex &index)
+{
+    ui->button_remove_link->setEnabled(true);
+}

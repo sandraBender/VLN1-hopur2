@@ -21,6 +21,12 @@ public:
 private slots:
     void on_Button_link_clicked();
 
+    void on_list_scientists_clicked(const QModelIndex &index);
+
+    void on_list_computers_clicked(const QModelIndex &index);
+
+    void on_list_known_relations_clicked(const QModelIndex &index);
+
 private:
     void displayAllScientists();
     void displayAllComputers();
@@ -28,6 +34,8 @@ private:
     void displayComputers(vector<Computer> comVec);
     Service service;
     Ui::LinkWindow *ui;
+    bool compclicked;
+    bool sciclicked;
 };
 
 #endif // LINKWINDOW_H
