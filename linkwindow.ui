@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>Scientists and Computers</string>
   </property>
   <widget class="QListWidget" name="list_scientists">
    <property name="geometry">

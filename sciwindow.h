@@ -17,7 +17,7 @@ class SciWindow : public QDialog
 
 public:
     explicit SciWindow(QWidget *parent = 0);
-    void displayAllScientists(string searchstr);
+    void displayAllScientists(string searchstr, char select);
     vector<Scientist> getCurrent();
     QString getName();
 

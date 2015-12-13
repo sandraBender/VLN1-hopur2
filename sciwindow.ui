@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
+    <width>504</width>
     <height>474</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
      <item>
       <widget class="QLineEdit" name="filter_scientists">
        <property name="placeholderText">
-        <string>Filter scientists..</string>
+        <string>Filter scientists on Name or Year of Birth..</string>
        </property>
       </widget>
      </item>

@@ -50,7 +50,7 @@ void AddSci::on_button_add_clicked()
     {
         close();
         SciWindow SciWin;
-        SciWin.displayAllScientists("");
+        SciWin.displayAllScientists("",'1');
         ui->line_name->clear();
         ui->line_yob->clear();
     }
