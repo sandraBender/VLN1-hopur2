@@ -125,5 +125,6 @@ void SciWindow::on_table_scientist_doubleClicked(const QModelIndex &index)
     QString name = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
     sciinfo info;
     info.setInfo(name, currentlyDisplayed);
+    info.displaycomps(name);
     info.exec();
 }

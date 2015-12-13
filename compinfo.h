@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "computer.h"
+#include "service.h"
 
 namespace Ui {
 class compinfo;
@@ -15,6 +16,7 @@ class compinfo : public QDialog
 public:
     void setInfo(QString name, vector<Computer> currentcomp);
     explicit compinfo(QWidget *parent = 0);
+    void displayscis(QString name);
     ~compinfo();
 
 private slots:
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::compinfo *ui;
+    Service serv;
 };
 
 #endif // COMPINFO_H

@@ -45,3 +45,15 @@ void sciinfo::on_button_close_clicked()
 {
     close();
 }
+
+void sciinfo::displaycomps(QString name)
+{
+    vector<QString> sci = serv.getRelations(1);
+    vector<QString> comp = serv.getRelations(2);
+
+    for(unsigned int i = 0; i < sci.size(); i++){
+        if(name == sci[i])
+            ui->list_related_comps->addItem(comp[i]);
+
+    }
+}

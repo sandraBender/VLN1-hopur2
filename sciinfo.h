@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "scientist.h"
+#include "service.h"
 
 namespace Ui {
 class sciinfo;
@@ -15,6 +16,7 @@ class sciinfo : public QDialog
 public:
     explicit sciinfo(QWidget *parent = 0);
     void setInfo(QString name, vector<Scientist> currentscis);
+    void displaycomps(QString name);
     ~sciinfo();
 
 private slots:
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::sciinfo *ui;
+    Service serv;
 };
 
 #endif // SCIINFO_H

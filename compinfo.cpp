@@ -32,6 +32,18 @@ compinfo::compinfo(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void compinfo::displayscis(QString name)
+{
+    vector<QString> sci = serv.getRelations(1);
+    vector<QString> comp = serv.getRelations(2);
+
+    for(unsigned int i = 0; i < sci.size(); i++){
+        if(name == comp[i])
+            ui->list_related_scientists->addItem(sci[i]);
+
+    }
+}
+
 compinfo::~compinfo()
 {
     delete ui;

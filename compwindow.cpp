@@ -100,5 +100,6 @@ void CompWindow::on_table_computers_doubleClicked(const QModelIndex &index)
     QString name = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
     compinfo info;
     info.setInfo(name, currentlyDisplayed);
+    info.displayscis(name);
     info.exec();
 }
