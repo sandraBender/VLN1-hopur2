@@ -6,6 +6,7 @@
 #include "service.h"
 #include <vector>
 #include <QChar>
+#include <time.h>
 
 namespace Ui {
 class SciWindow;
