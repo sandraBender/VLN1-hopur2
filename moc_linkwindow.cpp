@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_LinkWindow_t {
-    QByteArrayData data[9];
-    char stringdata0[181];
+    QByteArrayData data[8];
+    char stringdata0[175];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,15 +33,14 @@ QT_MOC_LITERAL(0, 0, 10), // "LinkWindow"
 QT_MOC_LITERAL(1, 11, 22), // "on_Button_link_clicked"
 QT_MOC_LITERAL(2, 34, 0), // ""
 QT_MOC_LITERAL(3, 35, 26), // "on_list_scientists_clicked"
-QT_MOC_LITERAL(4, 62, 5), // "index"
-QT_MOC_LITERAL(5, 68, 25), // "on_list_computers_clicked"
-QT_MOC_LITERAL(6, 94, 32), // "on_table_known_relations_clicked"
-QT_MOC_LITERAL(7, 127, 23), // "on_button_close_clicked"
-QT_MOC_LITERAL(8, 151, 29) // "on_button_remove_link_clicked"
+QT_MOC_LITERAL(4, 62, 25), // "on_list_computers_clicked"
+QT_MOC_LITERAL(5, 88, 32), // "on_table_known_relations_clicked"
+QT_MOC_LITERAL(6, 121, 23), // "on_button_close_clicked"
+QT_MOC_LITERAL(7, 145, 29) // "on_button_remove_link_clicked"
 
     },
     "LinkWindow\0on_Button_link_clicked\0\0"
-    "on_list_scientists_clicked\0index\0"
+    "on_list_scientists_clicked\0"
     "on_list_computers_clicked\0"
     "on_table_known_relations_clicked\0"
     "on_button_close_clicked\0"
@@ -64,17 +63,17 @@ static const uint qt_meta_data_LinkWindow[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   44,    2, 0x08 /* Private */,
-       3,    1,   45,    2, 0x08 /* Private */,
-       5,    1,   48,    2, 0x08 /* Private */,
-       6,    1,   51,    2, 0x08 /* Private */,
-       7,    0,   54,    2, 0x08 /* Private */,
-       8,    0,   55,    2, 0x08 /* Private */,
+       3,    0,   45,    2, 0x08 /* Private */,
+       4,    0,   46,    2, 0x08 /* Private */,
+       5,    0,   47,    2, 0x08 /* Private */,
+       6,    0,   48,    2, 0x08 /* Private */,
+       7,    0,   49,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QModelIndex,    4,
-    QMetaType::Void, QMetaType::QModelIndex,    4,
-    QMetaType::Void, QMetaType::QModelIndex,    4,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -88,14 +87,15 @@ void LinkWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_Button_link_clicked(); break;
-        case 1: _t->on_list_scientists_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 2: _t->on_list_computers_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 3: _t->on_table_known_relations_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 1: _t->on_list_scientists_clicked(); break;
+        case 2: _t->on_list_computers_clicked(); break;
+        case 3: _t->on_table_known_relations_clicked(); break;
         case 4: _t->on_button_close_clicked(); break;
         case 5: _t->on_button_remove_link_clicked(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject LinkWindow::staticMetaObject = {

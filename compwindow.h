@@ -17,6 +17,7 @@ class CompWindow : public QDialog
 public:
     explicit CompWindow(QWidget *parent = 0);
     void displayAllComputers(string searchStr);
+    void displayAllComputers(string searchStr, char number);
     ~CompWindow();
 
 private slots:

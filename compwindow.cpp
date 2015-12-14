@@ -33,13 +33,40 @@ void CompWindow::on_button_close_clicked()
 void CompWindow::on_line_filter_computers_textChanged()
 {
     string searchStr = ui->line_filter_computers->text().toStdString();
-    displayAllComputers(searchStr);
-}
+    QString qSearchstr = ui->line_filter_computers->text();
+    QChar c;
 
+    char select ='1';
+
+    if(searchStr != "")
+    {
+        for(int i=0; i < qSearchstr.length();i++)
+        {
+            c = qSearchstr.at(i);
+            if(c.isDigit())
+                select = '2';
+            else if(c.isLetter())
+                select = '1';
+         }
+    }
+
+    displayAllComputers(searchStr, select);
+
+}
 void CompWindow::displayAllComputers(string searchStr)
 {
+    char number = '1';
     ui->table_computers->setSortingEnabled(false);
-    vector<Computer> vec = serv.searchCom(searchStr, '1');
+    vector<Computer> vec = serv.searchCom(searchStr, number);
+    displayComputers(vec);
+    ui->table_computers->setSortingEnabled(true);
+}
+
+
+void CompWindow::displayAllComputers(string searchStr, char number)
+{
+    ui->table_computers->setSortingEnabled(false);
+    vector<Computer> vec = serv.searchCom(searchStr, number);
     displayComputers(vec);
     ui->table_computers->setSortingEnabled(true);
 }

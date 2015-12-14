@@ -56,7 +56,7 @@ void AddComp::on_button_add_clicked()
     {
         close();
         CompWindow comWin;
-        comWin.displayAllComputers("");
+        comWin.displayAllComputers("", '1');
         ui->line_name->clear();
         ui->line_build_year->clear();
     }

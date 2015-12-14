@@ -17,6 +17,7 @@ bool Service::addComputer(QString name, QString buildYear, QString builtOrNot, Q
 vector<Computer> Service::searchCom(string searchStr ,char number){
 
     vector<Computer> vec = data.searchCom(searchStr, number);
+
     return vec;
 }
 vector<Scientist> Service::searchSci(string searchStr ,char number){
