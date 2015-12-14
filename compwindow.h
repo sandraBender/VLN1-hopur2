@@ -22,16 +22,10 @@ public:
 
 private slots:
     void on_button_add_new_clicked();
-
     void on_button_close_clicked();
-
     void on_line_filter_computers_textChanged();
-
     void on_table_computers_clicked();
-
     void on_button_remove_selected_clicked();
-
-
     void on_table_computers_doubleClicked();
 
 private:

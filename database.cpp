@@ -11,7 +11,7 @@ bool database::getDatabase()
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "Database.sqlite";
-        db.setDatabaseName(dbName);
+    db.setDatabaseName(dbName);
 
     return db.open();
 }
@@ -213,7 +213,9 @@ vector<QString> database::getRelations(int number)
     default:
         break;
 
-}}
+}
+    return vec;
+}
 
 bool database::checkScientistOrComputerExistence(string searchString, bool sciOrComp)
 {

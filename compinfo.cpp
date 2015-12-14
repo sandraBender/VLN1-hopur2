@@ -13,7 +13,8 @@ void compinfo::setInfo(QString name, vector<Computer> currentcomp)
             yearBuilt = QString::number(currentcomp[i].getYearInvented());
             built = currentcomp[i].getBuiltOrNot();
             type = QString::fromStdString(currentcomp[i].getType());
-        }}
+        }
+    }
     QString builtText;
     if(built)
         builtText = "Built in " + yearBuilt;
