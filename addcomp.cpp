@@ -1,6 +1,7 @@
 #include "addcomp.h"
 #include "ui_addcomp.h"
 #include <QMessageBox>
+#include "compwindow.h"
 
 AddComp::AddComp(QWidget *parent) :
     QDialog(parent),

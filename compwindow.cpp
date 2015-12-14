@@ -1,6 +1,5 @@
 #include "compwindow.h"
 #include "ui_compwindow.h"
-#include "addcomp.h"
 #include <QStatusBar>
 #include "compinfo.h"
 using namespace std;
@@ -20,20 +19,10 @@ CompWindow::~CompWindow()
 
 void CompWindow::on_button_add_new_clicked()
 {
-    AddComp addComputer;
     ui->label_Remove_success->setText("");
+    addComputer.exec();
 
-    int addComputerReturnValue = addComputer.exec();
-
-    if (addComputerReturnValue == 0)
-    {
-        ui->label_Remove_success->setText("");
-        displayAllComputers("");
-    }
-    else
-    {
-        //ui->label_Remove_success->setText("");
-    }
+    displayAllComputers("");
 }
 
 void CompWindow::on_button_close_clicked()
@@ -41,7 +30,7 @@ void CompWindow::on_button_close_clicked()
     close();
 }
 
-void CompWindow::on_line_filter_computers_textChanged(const QString &arg1)
+void CompWindow::on_line_filter_computers_textChanged()
 {
     string searchStr = ui->line_filter_computers->text().toStdString();
     displayAllComputers(searchStr);
@@ -81,7 +70,7 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
     currentlyDisplayed = compVec;
 }
 
-void CompWindow::on_table_computers_clicked(const QModelIndex &index)
+void CompWindow::on_table_computers_clicked()
 {
     ui->button_remove_selected->setEnabled(true);
 }
@@ -95,7 +84,7 @@ void CompWindow::on_button_remove_selected_clicked()
     displayAllComputers("");
 }
 
-void CompWindow::on_table_computers_doubleClicked(const QModelIndex &index)
+void CompWindow::on_table_computers_doubleClicked()
 {
     QString name = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
     compinfo info;

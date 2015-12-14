@@ -20,17 +20,8 @@ SciWindow::~SciWindow()
 void SciWindow::on_button_addsci_clicked()
 {
     ui->label_successRemove->setText("");
-    int addScientistReturnValue = addScientist.exec();
-
-    if (addScientistReturnValue == 0)
-    {
-        ui->label_successRemove->setText("");
-        displayAllScientists("",'1');
-    }
-    else
-    {
-        //ui->label_successRemove->setText("");
-    }
+    addScientist.exec();
+    displayAllScientists("",'1');
 }
 
 void SciWindow::on_filter_scientists_textChanged()
@@ -120,7 +111,7 @@ void SciWindow::on_button_close_clicked()
     close();
 }
 
-void SciWindow::on_table_scientist_doubleClicked(const QModelIndex &index)
+void SciWindow::on_table_scientist_doubleClicked()
 {
     QString name = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
     sciinfo info;

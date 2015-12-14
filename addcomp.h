@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "service.h"
-#include "compwindow.h"
+
 
 namespace Ui {
 class AddComp;
