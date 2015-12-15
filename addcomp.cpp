@@ -28,7 +28,7 @@ bool AddComp::addcomputer()
     QString name = ui->line_name->text();
     QString buildyear;
     QString builtornot;
-    bool error;
+    bool error = false;
 
     if(ui->button_built->isChecked()){
         buildyear = ui->line_build_year->text();
@@ -52,21 +52,24 @@ bool AddComp::addcomputer()
     }
 
 
-    if(name.isEmpty()){
+    if(name.isEmpty())
+    {
         ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
         error = true;
     }
 
-    if(buildyear.isEmpty()){
+    if(buildyear.isEmpty())
+    {
         ui->label_errorYear->setText("<span style = 'color: #DC143C' > Build year cannot be empty </span>");
         error = true;
     }
     if(error)
+    {
         return false;
+    }
 
     QString type = ui->combo_type->currentText();
-    serv.addComputer(name, buildyear, builtornot, type);
-    return true;
+    return serv.addComputer(name, buildyear, builtornot, type);
 }
 
 void AddComp::on_button_add_clicked()
