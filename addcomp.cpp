@@ -51,7 +51,6 @@ bool AddComp::addcomputer()
         }
     }
 
-
     if(name.isEmpty())
     {
         ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
