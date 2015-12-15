@@ -21,6 +21,7 @@ void CompWindow::on_button_add_new_clicked()
 {
     ui->label_Remove_success->setText("");
     addComputer.exec();
+
     displayAllComputers("");
 }
 

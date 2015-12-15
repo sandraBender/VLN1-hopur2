@@ -21,7 +21,9 @@ public:
 
 private slots:
     void on_button_scientist_clicked();
+
     void on_button_computer_clicked();
+
     void on_button_relation_clicked();
 
 private:

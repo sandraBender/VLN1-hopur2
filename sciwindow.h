@@ -27,10 +27,15 @@ public:
 private slots:
 
     void on_button_addsci_clicked();
+
     void on_filter_scientists_textChanged();
+
     void on_table_scientist_clicked();
+
     void on_button_remove_student_clicked();
+
     void on_button_close_clicked();
+
     void on_table_scientist_doubleClicked();
 
 private:
