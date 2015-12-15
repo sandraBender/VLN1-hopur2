@@ -20,6 +20,30 @@ bool AddSci::addscientist()
     QString yod;
     QString gender = ui->comboBox_gender->currentText();
 
+    string nameStr = name.toStdString();
+    string yobStr = yob.toStdString();
+
+    for (size_t i = 0; i < nameStr.length(); i++)
+    {
+        if (isdigit(nameStr[i]))
+        {
+            ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot contain numbers </span>");
+            ui->line_name->setText("");
+            return false;
+        }
+    }
+
+    for (size_t i = 0; i < yobStr.length(); i++)
+    {
+        if (isalpha(yobStr[i]))
+        {
+            ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year cannot contain characters </span>");
+            ui->line_yob->setText("");
+            return false;
+        }
+    }
+
+
     if (name.isEmpty())
     {
         ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
