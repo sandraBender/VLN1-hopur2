@@ -17,11 +17,14 @@ public:
     string getGender();
     int getYob();
     int getYod();
+    int getAge();
+    int setAge(int yb, int yd);
 private:
     string name;
     string gender;
     int yearOfBirth;
     int yearOfDeath;
+    int age;
 };
 
 

@@ -6,6 +6,7 @@ Scientist::Scientist(string Name, int YearOfBirth, int YearOfDeath, string Gende
     gender = Gender;
     yearOfBirth = YearOfBirth;
     yearOfDeath = YearOfDeath;
+    age = setAge(yearOfBirth, yearOfDeath);
 }
 
 Scientist::Scientist()
@@ -14,6 +15,7 @@ Scientist::Scientist()
     gender = "";
     yearOfBirth = 0;
     yearOfDeath = 0;
+    age = 0;
 }
 
 string Scientist::getName()
@@ -36,10 +38,30 @@ int Scientist::getYod()
     return yearOfDeath;
 }
 
+int Scientist::setAge(int yb, int yd)
+{
+    if (yd == 0)
+    {
+        time_t Time = time(NULL);
+         struct tm *theTime = localtime(&Time);
+        yd = theTime->tm_year + 1900;
+
+    }
+    return (yd - yb);
+
+
+}
+
+int Scientist::getAge()
+{
+    return age;
+}
+
 void Scientist::operator=(const Scientist& s)
 {
     name = s.name;
     yearOfBirth = s.yearOfBirth;
     yearOfDeath = s.yearOfDeath;
     gender = s.gender;
+    age = s.age;
 }

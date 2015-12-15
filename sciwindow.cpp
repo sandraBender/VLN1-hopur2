@@ -81,17 +81,18 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
                 yod = "Alive";
         QString gender = QString::fromStdString(currentScientist.getGender());
 
-        int year_born = currentScientist.getYob();
-        int year_dead = currentScientist.getYod();
 
-        if (year_dead == 0)
-        {
-            time_t Time = time(NULL);
-             struct tm *theTime = localtime(&Time);
-            year_dead = theTime->tm_year + 1900;
-        }
-        int age = year_dead - year_born;
-        QString ageOfScientist = QString::number(age);
+//        int year_born = currentScientist.getYob();
+//        int year_dead = currentScientist.getYod();
+
+//        if (year_dead == 0)
+//        {
+//            time_t Time = time(NULL);
+//             struct tm *theTime = localtime(&Time);
+//            year_dead = theTime->tm_year + 1900;
+//        }
+//        int age = year_dead - year_born;
+        QString ageOfScientist = QString::number(currentScientist.getAge());
         ui->table_scientist->setItem(row, 0, new QTableWidgetItem(name));
         ui->table_scientist->setItem(row, 1, new QTableWidgetItem(yob));
         ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yod));
