@@ -105,6 +105,7 @@ void CompWindow::on_button_remove_selected_clicked()
     ui->line_filter_computers->clear();
     ui->label_Remove_success->setText("Computer was successfully removed");
     displayAllComputers("");
+    ui->button_remove_selected->setEnabled(false);
 }
 
 void CompWindow::on_table_computers_doubleClicked()
