@@ -92,21 +92,21 @@ void LinkWindow::displayLinks()
 }
 
 
-void LinkWindow::on_list_scientists_clicked(const QModelIndex &index)
+void LinkWindow::on_list_scientists_clicked()
 {
     sciclicked = true;
     if(compclicked)
         ui->Button_link->setEnabled(true);
 }
 
-void LinkWindow::on_list_computers_clicked(const QModelIndex &index)
+void LinkWindow::on_list_computers_clicked()
 {
     compclicked = true;
     if(sciclicked)
         ui->Button_link->setEnabled(true);
 }
 
-void LinkWindow::on_table_known_relations_clicked(const QModelIndex &index)
+void LinkWindow::on_table_known_relations_clicked()
 {
     ui->button_remove_link->setEnabled(true);
 }

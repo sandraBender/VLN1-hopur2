@@ -37,9 +37,23 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QLabel" name="label_scientists">
+      <property name="text">
+       <string>Scientists</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QListWidget" name="list_scientists">
       <property name="resizeMode">
        <enum>QListView::Adjust</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_computers">
+      <property name="text">
+       <string>Computers</string>
       </property>
      </widget>
     </item>

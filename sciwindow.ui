@@ -88,6 +88,9 @@
           <property name="text">
            <string>Age</string>
           </property>
+          <property name="textAlignment">
+           <set>AlignLeading|AlignVCenter</set>
+          </property>
          </column>
          <column>
           <property name="text">

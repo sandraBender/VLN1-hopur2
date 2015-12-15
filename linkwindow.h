@@ -21,11 +21,11 @@ public:
 private slots:
     void on_Button_link_clicked();
 
-    void on_list_scientists_clicked(const QModelIndex &index);
+    void on_list_scientists_clicked();
 
-    void on_list_computers_clicked(const QModelIndex &index);
+    void on_list_computers_clicked();
 
-    void on_table_known_relations_clicked(const QModelIndex &index);
+    void on_table_known_relations_clicked();
 
     void on_button_close_clicked();
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'linkwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -30,7 +30,9 @@ public:
     QPushButton *button_close;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
+    QLabel *label_scientists;
     QListWidget *list_scientists;
+    QLabel *label_computers;
     QListWidget *list_computers;
     QPushButton *Button_link;
     QWidget *layoutWidget1;
@@ -54,11 +56,21 @@ public:
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_scientists = new QLabel(layoutWidget);
+        label_scientists->setObjectName(QStringLiteral("label_scientists"));
+
+        verticalLayout->addWidget(label_scientists);
+
         list_scientists = new QListWidget(layoutWidget);
         list_scientists->setObjectName(QStringLiteral("list_scientists"));
         list_scientists->setResizeMode(QListView::Adjust);
 
         verticalLayout->addWidget(list_scientists);
+
+        label_computers = new QLabel(layoutWidget);
+        label_computers->setObjectName(QStringLiteral("label_computers"));
+
+        verticalLayout->addWidget(label_computers);
 
         list_computers = new QListWidget(layoutWidget);
         list_computers->setObjectName(QStringLiteral("list_computers"));
@@ -118,6 +130,8 @@ public:
     {
         LinkWindow->setWindowTitle(QApplication::translate("LinkWindow", "Scientists and Computers", 0));
         button_close->setText(QApplication::translate("LinkWindow", "Close", 0));
+        label_scientists->setText(QApplication::translate("LinkWindow", "Scientists", 0));
+        label_computers->setText(QApplication::translate("LinkWindow", "Computers", 0));
         Button_link->setText(QApplication::translate("LinkWindow", "Link", 0));
         label_known_relations->setText(QApplication::translate("LinkWindow", "Known relations:", 0));
         QTableWidgetItem *___qtablewidgetitem = table_known_relations->horizontalHeaderItem(0);

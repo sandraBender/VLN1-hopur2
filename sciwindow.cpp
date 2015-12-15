@@ -120,7 +120,7 @@ void SciWindow::on_button_close_clicked()
     close();
 }
 
-void SciWindow::on_table_scientist_doubleClicked(const QModelIndex &index)
+void SciWindow::on_table_scientist_doubleClicked()
 {
     QString name = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
     sciinfo info;
