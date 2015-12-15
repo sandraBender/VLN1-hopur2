@@ -19,7 +19,7 @@
      <item>
       <widget class="QLineEdit" name="line_filter_computers">
        <property name="placeholderText">
-        <string>Filter by name, build year, not built '0' or type</string>
+        <string>Filter by name, build year or type</string>
        </property>
       </widget>
      </item>

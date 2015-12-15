@@ -26,21 +26,12 @@ bool AddComp::addcomputer()
     ui->label_errorName->setText("");
     ui->label_errorYear->setText("");
     QString name = ui->line_name->text();
-    bool error;
-
-    if(name.isEmpty()){
-        ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
-        error = false;
-    }
     QString buildyear;
     QString builtornot;
+    bool error;
 
     if(ui->button_built->isChecked()){
         buildyear = ui->line_build_year->text();
-        if(buildyear.isEmpty()){
-            ui->label_errorYear->setText("<span style = 'color: #DC143C' > Build year cannot be empty </span>");
-            error = false;
-        }
         builtornot = "1";
     }
     else if(ui->button_notbuilt->isChecked()){
@@ -56,17 +47,26 @@ bool AddComp::addcomputer()
         {
             ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year cannot contain characters </span>");
             ui->line_build_year->setText("");
-            error = false;
+            error = true;
         }
     }
 
-    if (error)
-    {
-        return error;
+
+    if(name.isEmpty()){
+        ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
+        error = true;
     }
 
+    if(buildyear.isEmpty()){
+        ui->label_errorYear->setText("<span style = 'color: #DC143C' > Build year cannot be empty </span>");
+        error = true;
+    }
+    if(error)
+        return false;
+
     QString type = ui->combo_type->currentText();
-    return serv.addComputer(name, buildyear, builtornot, type);
+    serv.addComputer(name, buildyear, builtornot, type);
+    return true;
 }
 
 void AddComp::on_button_add_clicked()

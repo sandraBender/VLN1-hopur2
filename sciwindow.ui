@@ -103,7 +103,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="button_remove_student">
+        <widget class="QPushButton" name="button_remove_scientist">
          <property name="enabled">
           <bool>false</bool>
          </property>

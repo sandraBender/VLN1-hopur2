@@ -47,7 +47,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_errorYear">
+        <widget class="QLabel" name="label_erroryob">
          <property name="text">
           <string/>
          </property>
@@ -92,14 +92,21 @@
          </property>
         </widget>
        </item>
-       <item alignment="Qt::AlignRight">
-        <widget class="QLineEdit" name="line_yod">
-         <property name="enabled">
-          <bool>false</bool>
+       <item>
+        <widget class="QLabel" name="label_erroryod">
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="line_yod">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_14">
