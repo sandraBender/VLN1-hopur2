@@ -41,7 +41,7 @@ void SciWindow::on_filter_scientists_textChanged()
                 select = '1';
             else if(c.isDigit())
                 select = '2';
-         }
+        }
     }
 
     displayAllScientists(searchStr,select);

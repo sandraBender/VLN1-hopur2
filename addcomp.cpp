@@ -65,7 +65,6 @@ bool AddComp::addcomputer()
         return error;
     }
 
-
     QString type = ui->combo_type->currentText();
     return serv.addComputer(name, buildyear, builtornot, type);
 }
