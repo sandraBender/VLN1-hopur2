@@ -48,6 +48,9 @@
       <property name="resizeMode">
        <enum>QListView::Adjust</enum>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item>
@@ -58,7 +61,11 @@
      </widget>
     </item>
     <item>
-     <widget class="QListWidget" name="list_computers"/>
+     <widget class="QListWidget" name="list_computers">
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="Button_link">
@@ -97,11 +104,17 @@
       <property name="showGrid">
        <bool>false</bool>
       </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
       <attribute name="horizontalHeaderVisible">
        <bool>false</bool>
       </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
       </attribute>
       <column>
        <property name="text">

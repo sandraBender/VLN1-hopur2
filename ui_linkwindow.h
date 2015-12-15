@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'linkwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -64,6 +64,7 @@ public:
         list_scientists = new QListWidget(layoutWidget);
         list_scientists->setObjectName(QStringLiteral("list_scientists"));
         list_scientists->setResizeMode(QListView::Adjust);
+        list_scientists->setSortingEnabled(true);
 
         verticalLayout->addWidget(list_scientists);
 
@@ -74,6 +75,7 @@ public:
 
         list_computers = new QListWidget(layoutWidget);
         list_computers->setObjectName(QStringLiteral("list_computers"));
+        list_computers->setSortingEnabled(true);
 
         verticalLayout->addWidget(list_computers);
 
@@ -106,8 +108,10 @@ public:
         table_known_relations->setObjectName(QStringLiteral("table_known_relations"));
         table_known_relations->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_known_relations->setShowGrid(false);
+        table_known_relations->setSortingEnabled(true);
         table_known_relations->horizontalHeader()->setVisible(false);
         table_known_relations->verticalHeader()->setVisible(false);
+        table_known_relations->verticalHeader()->setProperty("showSortIndicator", QVariant(true));
 
         verticalLayout_2->addWidget(table_known_relations);
 
