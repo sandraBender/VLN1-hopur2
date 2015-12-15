@@ -1,6 +1,5 @@
 #include "compwindow.h"
 #include "ui_compwindow.h"
-#include "addcomp.h"
 #include <QStatusBar>
 #include "compinfo.h"
 using namespace std;
@@ -20,20 +19,9 @@ CompWindow::~CompWindow()
 
 void CompWindow::on_button_add_new_clicked()
 {
-    AddComp addComputer;
     ui->label_Remove_success->setText("");
-
-    int addComputerReturnValue = addComputer.exec();
-
-    if (addComputerReturnValue == 0)
-    {
-        ui->label_Remove_success->setText("");
-        displayAllComputers("");
-    }
-    else
-    {
-        //ui->label_Remove_success->setText("");
-    }
+    addComputer.exec();
+    displayAllComputers("");
 }
 
 void CompWindow::on_button_close_clicked()
@@ -41,16 +29,43 @@ void CompWindow::on_button_close_clicked()
     close();
 }
 
-void CompWindow::on_line_filter_computers_textChanged(const QString &arg1)
+void CompWindow::on_line_filter_computers_textChanged()
 {
     string searchStr = ui->line_filter_computers->text().toStdString();
-    displayAllComputers(searchStr);
-}
+    QString qSearchstr = ui->line_filter_computers->text();
+    QChar c;
 
+    char select ='1';
+
+    if(searchStr != "")
+    {
+        for(int i=0; i < qSearchstr.length();i++)
+        {
+            c = qSearchstr.at(i);
+            if(c.isDigit())
+                select = '2';
+            else if(c.isLetter())
+                select = '1';
+         }
+    }
+
+    displayAllComputers(searchStr, select);
+
+}
 void CompWindow::displayAllComputers(string searchStr)
 {
+    char number = '1';
     ui->table_computers->setSortingEnabled(false);
-    vector<Computer> vec = serv.searchCom(searchStr, '1');
+    vector<Computer> vec = serv.searchCom(searchStr, number);
+    displayComputers(vec);
+    ui->table_computers->setSortingEnabled(true);
+}
+
+
+void CompWindow::displayAllComputers(string searchStr, char number)
+{
+    ui->table_computers->setSortingEnabled(false);
+    vector<Computer> vec = serv.searchCom(searchStr, number);
     displayComputers(vec);
     ui->table_computers->setSortingEnabled(true);
 }
@@ -81,7 +96,7 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
     currentlyDisplayed = compVec;
 }
 
-void CompWindow::on_table_computers_clicked(const QModelIndex &index)
+void CompWindow::on_table_computers_clicked()
 {
     ui->button_remove_selected->setEnabled(true);
 }
@@ -95,7 +110,7 @@ void CompWindow::on_button_remove_selected_clicked()
     displayAllComputers("");
 }
 
-void CompWindow::on_table_computers_doubleClicked(const QModelIndex &index)
+void CompWindow::on_table_computers_doubleClicked()
 {
     QString name = ui->table_computers->item(ui->table_computers->currentIndex().row(), 0)->text();
     compinfo info;

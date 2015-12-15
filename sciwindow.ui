@@ -22,7 +22,7 @@
      <item>
       <widget class="QLineEdit" name="filter_scientists">
        <property name="placeholderText">
-        <string>Filter scientists on Name or Year of Birth..</string>
+        <string>Filter scientists by name or year</string>
        </property>
       </widget>
      </item>

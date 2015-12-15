@@ -20,17 +20,8 @@ SciWindow::~SciWindow()
 void SciWindow::on_button_addsci_clicked()
 {
     ui->label_successRemove->setText("");
-    int addScientistReturnValue = addScientist.exec();
-
-    if (addScientistReturnValue == 0)
-    {
-        ui->label_successRemove->setText("");
-        displayAllScientists("",'1');
-    }
-    else
-    {
-        //ui->label_successRemove->setText("");
-    }
+    addScientist.exec();
+    displayAllScientists("",'1');
 }
 
 void SciWindow::on_filter_scientists_textChanged()
@@ -83,7 +74,9 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
 
         if (year_dead == 0)
         {
-            year_dead = 2015;
+            time_t Time = time(NULL);
+             struct tm *theTime = localtime(&Time);
+            year_dead = theTime->tm_year + 1900;
         }
         int age = year_dead - year_born;
         QString ageOfScientist = QString::number(age);

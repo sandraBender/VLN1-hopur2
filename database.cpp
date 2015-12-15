@@ -11,7 +11,7 @@ bool database::getDatabase()
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "Database.sqlite";
-        db.setDatabaseName(dbName);
+    db.setDatabaseName(dbName);
 
     return db.open();
 }
@@ -100,15 +100,10 @@ vector<Scientist> database::searchSci(string searchStr ,char number)
         vec = createSciVec(command);}
         break;
     case '2':{
-        string temp = "SELECT * FROM Scientists WHERE YearOfBirth LIKE '%" + searchStr + "%'";
+        string temp = "SELECT * FROM Scientists WHERE YearOfBirth LIKE '%" + searchStr + "%' OR YearOfDeath LIKE '%" + searchStr + "%'";
         command = QString::fromStdString(temp);
         vec = createSciVec(command);}
         break;
-    case '3':{
-        string temp = "SELECT * FROM Scientists WHERE gender LIKE " + searchStr;
-        command = QString::fromStdString(temp);
-        vec = createSciVec(command);
-        break;}
     default:
         cout << "Nothing happend!! " << endl;
         break;
@@ -123,7 +118,7 @@ vector<Computer> database::searchCom(string searchStr ,char number)
     QString command;
     switch (number) {
     case '1':{
-        string temp = "SELECT * FROM Computers WHERE name LIKE '%" + searchStr + "%'";
+        string temp = "SELECT * FROM Computers WHERE name LIKE '%" + searchStr + "%' OR Type LIKE '%" + searchStr + "%'";
         command = QString::fromStdString(temp);
         vec = createCompVec(command);}
         break;
@@ -132,11 +127,6 @@ vector<Computer> database::searchCom(string searchStr ,char number)
         command = QString::fromStdString(temp);
         vec = createCompVec(command);}
         break;
-    case '3':{
-        string temp = "SELECT * FROM Computers WHERE type LIKE '%" + searchStr + "%'";
-        command = QString::fromStdString(temp);
-        vec = createCompVec(command);
-        break;}
     default:
         cout << "Nothing happend!! " << endl;
         break;
@@ -223,7 +213,9 @@ vector<QString> database::getRelations(int number)
     default:
         break;
 
-}}
+}
+    return vec;
+}
 
 bool database::checkScientistOrComputerExistence(string searchString, bool sciOrComp)
 {
