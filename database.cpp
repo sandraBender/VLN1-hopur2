@@ -137,12 +137,24 @@ vector<Computer> database::searchCom(string searchStr ,char number)
 //Function to delete from Scientists
 void database::deleteSC(char number, QString name)
 {
+    vector<QString> scilinks = getRelations(1);
+    vector<QString> complinks = getRelations(2);
+    for(unsigned int i = 0; i < scilinks.size(); i++){
+        if(name == scilinks[i]|| name == complinks[i])
+        {addDeleteLink(scilinks[i].toStdString(), complinks[i].toStdString(), '2');
+        }
+    }
+
     QString command;
-    if (number == '1'){
+    if (number == '1')
+    {
         command = "DELETE FROM Scientists WHERE Name = '" + name + "'";
         query.exec(command);
     }
-    else    if (number == '2'){
+    
+    
+    else    if (number == '2')
+    {
         command = "DELETE FROM Computers WHERE Name = '" + name + "'";
         query.exec(command);
     }
