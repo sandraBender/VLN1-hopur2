@@ -19,6 +19,7 @@ bool AddSci::addscientist()
     QString yob = ui->line_yob->text();
     QString yod;
     QString gender = ui->comboBox_gender->currentText();
+    bool error;
 
     string nameStr = name.toStdString();
     string yobStr = yob.toStdString();
@@ -29,7 +30,7 @@ bool AddSci::addscientist()
         {
             ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot contain numbers </span>");
             ui->line_name->setText("");
-            return false;
+            error = false;
         }
     }
 
@@ -39,21 +40,26 @@ bool AddSci::addscientist()
         {
             ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year cannot contain characters </span>");
             ui->line_yob->setText("");
-            return false;
+            error = false;
         }
     }
-
 
     if (name.isEmpty())
     {
         ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
-        return false;
+        error = false;
     }
     if (yob.isEmpty())
     {
         ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year of birth cannot be empty </span>");
-        return false;
+        error = false;
     }
+
+    if (!error)
+    {
+        return error;
+    }
+
     if(ui->button_alive->isChecked())
         yod = "0";
     else if(ui->button_dead->isChecked())
