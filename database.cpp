@@ -213,7 +213,9 @@ vector<QString> database::getRelations(int number)
     default:
         break;
 
-}}
+    }
+    return vec;
+}
 
 bool database::checkScientistOrComputerExistence(string searchString, bool sciOrComp)
 {
