@@ -9,7 +9,7 @@ SciWindow::SciWindow(QWidget *parent) :
     ui(new Ui::SciWindow)
 {
     ui->setupUi(this);
-    displayAllScientists("",'1');
+    displayAllScientists("");
 }
 
 SciWindow::~SciWindow()
@@ -21,7 +21,7 @@ void SciWindow::on_button_addsci_clicked()
 {
     ui->label_successRemove->setText("");
     addScientist.exec();
-    displayAllScientists("",'1');
+    displayAllScientists("");
 }
 
 void SciWindow::on_filter_scientists_textChanged()
@@ -36,14 +36,25 @@ void SciWindow::on_filter_scientists_textChanged()
         for(int i=0; i < qSearchstr.length();i++)
         {
             c = qSearchstr.at(i);
-            if(c.isDigit())
-                select = '2';
-            else if(c.isLetter())
+
+            if(c.isLetter())
                 select = '1';
+            else if(c.isDigit())
+                select = '2';
          }
     }
 
     displayAllScientists(searchStr,select);
+}
+
+void SciWindow::displayAllScientists(string searchstr)
+{
+
+    ui->table_scientist->setSortingEnabled(false);
+    char select = '1';
+    vector<Scientist> vec = serv.searchSci(searchstr, select);
+    displayScientists(vec);
+    ui->table_scientist->setSortingEnabled(true);
 }
 
 void SciWindow::displayAllScientists(string searchstr,char select)
@@ -101,7 +112,7 @@ void SciWindow::on_button_remove_student_clicked()
    serv.deleteData('1', sciName);
    ui->label_successRemove->setText("Scientist was successfully removed");
    ui->filter_scientists->clear();
-   displayAllScientists("",'1');
+   displayAllScientists("");
 }
 
 void SciWindow::on_button_close_clicked()

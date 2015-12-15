@@ -41,10 +41,10 @@ void CompWindow::on_line_filter_computers_textChanged()
         for(int i=0; i < qSearchstr.length();i++)
         {
             c = qSearchstr.at(i);
-            if(c.isDigit())
-                select = '2';
-            else if(c.isLetter())
+            if(c.isLetter())
                 select = '1';
+            else if(c.isDigit())
+                select = '2';
          }
     }
 
@@ -88,7 +88,7 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
         ui->table_computers->setItem(row, 0, new QTableWidgetItem(name));
         ui->table_computers->setItem(row, 1, new QTableWidgetItem(yearBuilt));
         ui->table_computers->setItem(row, 2, new QTableWidgetItem(type));
-        ui->table_computers->setColumnWidth(0,150);
+        ui->table_computers->setColumnWidth(0,160);
     }
     currentlyDisplayed = compVec;
 }

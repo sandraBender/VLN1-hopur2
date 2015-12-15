@@ -25,7 +25,8 @@ public:
     vector<Computer> searchCom(string searchStr, char number);
     vector<QString> getRelations(int number);
     void deleteData(char number, QString name); 
-    void addDeleteLink(string scientist, string computer, char number);
+    void addLink(string scientist, string computer);
+    void deleteLink(string scientist, string computer);
 
 private:
     database data;

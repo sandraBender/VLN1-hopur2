@@ -32,19 +32,21 @@ void LinkWindow::on_Button_link_clicked()
             return;
         }
     }
-    service.addDeleteLink(sciname, compname, '1');
+    service.addLink(sciname, compname);
     displayLinks();
 }
 
 void LinkWindow::displayAllScientists()
 {
-    vector<Scientist> scVec = service.searchSci("", '1');
+    char displaychar = '1';
+    vector<Scientist> scVec = service.searchSci("", displaychar);
     displayScientists(scVec);
 }
 
 void LinkWindow::displayAllComputers()
 {
-    vector<Computer> comVec = service.searchCom("", '1');
+    char displaychar = '1';
+    vector<Computer> comVec = service.searchCom("", displaychar);
     displayComputers(comVec);
 }
 
@@ -120,6 +122,6 @@ void LinkWindow::on_button_remove_link_clicked()
 {
     string sciname = ui->table_known_relations->item(ui->table_known_relations->currentIndex().row(), 0)->text().toStdString();
     string compname = ui->table_known_relations->item(ui->table_known_relations->currentIndex().row(), 2)->text().toStdString();
-    service.addDeleteLink(sciname, compname, '2');
+    service.deleteLink(sciname, compname);
     displayLinks();
 }

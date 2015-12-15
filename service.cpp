@@ -43,9 +43,16 @@ bool Service::disconnect()
     return data.closeDatabase();
 }
 
-void Service::addDeleteLink(string scientist, string computer, char number)
+void Service::addLink(string scientist, string computer)
 {
-    data.addDeleteLink(scientist, computer, number);
+    char addchar = '1';
+    data.addDeleteLink(scientist, computer, addchar);
+}
+
+void Service::deleteLink(string scientist, string computer)
+{
+    char deletechar = '2';
+    data.addDeleteLink(scientist, computer, deletechar);
 }
 
 vector<QString> Service::getRelations(int number)
