@@ -38,6 +38,11 @@ int Scientist::getYod()
     return yearOfDeath;
 }
 
+int Scientist::getAge()
+{
+    return age;
+}
+
 int Scientist::setAge(int yb, int yd)
 {
     if (yd == 0)
@@ -45,16 +50,9 @@ int Scientist::setAge(int yb, int yd)
         time_t Time = time(NULL);
          struct tm *theTime = localtime(&Time);
         yd = theTime->tm_year + 1900;
-
     }
+
     return (yd - yb);
-
-
-}
-
-int Scientist::getAge()
-{
-    return age;
 }
 
 void Scientist::operator=(const Scientist& s)

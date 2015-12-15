@@ -19,8 +19,6 @@ public:
     bool addComputer(QString name, QString buildYear, QString builtOrNot, QString type);
     bool connect();
     bool disconnect();
-    vector<Computer> sortCom(char number);
-    vector<Scientist> sortSci(char number);
     vector<Scientist> searchSci(string searchStr, char number);
     vector<Computer> searchCom(string searchStr, char number);
     vector<QString> getRelations(int number);
