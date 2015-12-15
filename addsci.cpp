@@ -55,7 +55,7 @@ bool AddSci::addscientist()
         error = false;
     }
 
-    if (!error)
+    if (error)
     {
         return error;
     }

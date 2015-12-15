@@ -7,26 +7,26 @@ Service::Service()
 //adds scientists to the list
 bool Service::addScientist(QString name, QString yob, QString yod, QString gender)
 {
-    string nameStr = name.toUtf8().constData();
+//    string nameStr = name.toUtf8().constData();
 
-    for(unsigned int i = 0; i < nameStr.length(); i++)
-    {
-        if(islower(nameStr[0]))
-        {
-            nameStr[0] = toupper(nameStr[0]);
-        }
-        else if(nameStr[i] == ' ')
-        {
-            if (islower(nameStr[i + 1]))
-            {
-                nameStr[i + 1] = toupper(nameStr[i + 1]);
-            }
-        }
-    }
+//    for(unsigned int i = 0; i < nameStr.length(); i++)
+//    {
+//        if(islower(nameStr[0]))
+//        {
+//            nameStr[0] = toupper(nameStr[0]);
+//        }
+//        else if(nameStr[i] == ' ')
+//        {
+//            if (islower(nameStr[i + 1]))
+//            {
+//                nameStr[i + 1] = toupper(nameStr[i + 1]);
+//            }
+//        }
+//    }
 
-    QString completeName = QString::fromLocal8Bit(nameStr.c_str());
+//    QString completeName = QString::fromLocal8Bit(nameStr.c_str());
 
-    return data.editData(completeName, yob, yod, gender);
+    return data.editData(name, yob, yod, gender);
 }
 
 bool Service::addComputer(QString name, QString buildYear, QString builtOrNot, QString type)

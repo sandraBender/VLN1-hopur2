@@ -60,7 +60,7 @@ bool AddComp::addcomputer()
         }
     }
 
-    if (!error)
+    if (error)
     {
         return error;
     }
