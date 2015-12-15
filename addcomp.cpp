@@ -26,9 +26,11 @@ bool AddComp::addcomputer()
     ui->label_errorName->setText("");
     ui->label_errorYear->setText("");
     QString name = ui->line_name->text();
+    bool error;
+
     if(name.isEmpty()){
         ui->label_errorName->setText("<span style = 'color: #DC143C' > Name cannot be empty </span>");
-        return false;
+        error = false;
     }
     QString buildyear;
     QString builtornot;
@@ -37,7 +39,7 @@ bool AddComp::addcomputer()
         buildyear = ui->line_build_year->text();
         if(buildyear.isEmpty()){
             ui->label_errorYear->setText("<span style = 'color: #DC143C' > Build year cannot be empty </span>");
-            return false;
+            error = false;
         }
         builtornot = "1";
     }
@@ -54,8 +56,13 @@ bool AddComp::addcomputer()
         {
             ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year cannot contain characters </span>");
             ui->line_build_year->setText("");
-            return false;
+            error = false;
         }
+    }
+
+    if (!error)
+    {
+        return error;
     }
 
 
