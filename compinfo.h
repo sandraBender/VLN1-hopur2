@@ -1,11 +1,11 @@
 #ifndef COMPINFO_H
 #define COMPINFO_H
-
 #include <QDialog>
 #include "computer.h"
 #include "service.h"
 
-namespace Ui {
+namespace Ui
+{
 class compinfo;
 }
 
@@ -15,8 +15,8 @@ class compinfo : public QDialog
 
 public:
     void setInfo(QString name, vector<Computer> currentcomp);
-    explicit compinfo(QWidget *parent = 0);
     void displayscis(QString name);
+    explicit compinfo(QWidget *parent = 0);  
     ~compinfo();
 
 private slots:

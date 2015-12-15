@@ -1,6 +1,5 @@
 #ifndef DATABASE_H
 #define DATABASE_H
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,25 +10,24 @@
 #include <QtSql>
 #include "computer.h"
 
-
-
 class database
-{
+{  
 public:
     database();
     bool getDatabase();
-    vector<Scientist> createSciVec(QString command);
-    vector<Computer> createCompVec(QString command);
     bool editData(QString name, QString yob, QString yod, QString gender);
     bool editDataComp(QString name, QString buildYear, QString builtOrNot, QString type);
+    bool checkScientistOrComputerExistence(string searchString, bool sciOrCom);
+    bool closeDatabase();
+    vector<Scientist> createSciVec(QString command);
+    vector<Computer> createCompVec(QString command);
+    vector<QString> getRelations(int number);
     vector<Scientist> searchSci(string searchStr ,char number);
     vector<Computer> searchCom(string searchStr ,char number);
     void deleteSC(char number, QString name);
-    bool closeDatabase();
     void addDeleteLink(string scientist, string computer, char number);
     void linkChoice();
-    vector<QString> getRelations(int number);
-    bool checkScientistOrComputerExistence(string searchString, bool sciOrCom);
+
 private:
     QSqlQuery query;
 };

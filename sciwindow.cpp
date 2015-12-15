@@ -85,9 +85,7 @@ void SciWindow::displayScientists(std::vector<Scientist> scivec)
         ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yod));
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(ageOfScientist));
         ui->table_scientist->setItem(row, 4, new QTableWidgetItem(gender));
-
         ui->table_scientist->setColumnWidth(0, 150);
-
     }
     currentlyDisplayed = scivec;
 }
@@ -100,7 +98,6 @@ void SciWindow::on_table_scientist_clicked()
 void SciWindow::on_button_remove_student_clicked()
 {
    QString sciName = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
-
    serv.deleteData('1', sciName);
    ui->label_successRemove->setText("Scientist was successfully removed");
    ui->filter_scientists->clear();

@@ -1,6 +1,5 @@
 #ifndef SCIWINDOW_H
 #define SCIWINDOW_H
-
 #include <QDialog>
 #include "addsci.h"
 #include "service.h"
@@ -8,7 +7,8 @@
 #include <QChar>
 #include <time.h>
 
-namespace Ui {
+namespace Ui
+{
 class SciWindow;
 }
 
@@ -25,17 +25,11 @@ public:
     ~SciWindow();
 
 private slots:
-
     void on_button_addsci_clicked();
-
     void on_filter_scientists_textChanged();
-
     void on_table_scientist_clicked();
-
     void on_button_remove_student_clicked();
-
     void on_button_close_clicked();
-
     void on_table_scientist_doubleClicked();
 
 private:

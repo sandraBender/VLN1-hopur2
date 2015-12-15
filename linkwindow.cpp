@@ -18,7 +18,8 @@ LinkWindow::~LinkWindow()
 }
 
 void LinkWindow::on_Button_link_clicked()
-{   ui->label_link_error->clear();
+{
+    ui->label_link_error->clear();
     string compname = ui->list_computers->item(ui->list_computers->currentRow())->text().toStdString();
     string sciname = ui->list_scientists->item(ui->list_scientists->currentRow())->text().toStdString();
 
@@ -28,7 +29,8 @@ void LinkWindow::on_Button_link_clicked()
     for(unsigned int i = 0; i < scinames.size(); i++){
         if(QString::fromStdString(compname) == compnames[i] && QString::fromStdString(sciname) == scinames[i]){
             ui->label_link_error->setText("<span style = 'color: #DC143C' > Relation already exists </span>");
-        return;}
+            return;
+        }
     }
     service.addDeleteLink(sciname, compname, '1');
     displayLinks();
@@ -53,7 +55,6 @@ void LinkWindow::displayScientists(vector<Scientist> scVec)
     for (size_t i = 0; i < scVec.size(); i++)
     {
         Scientist currentScientist = scVec[i];
-
         ui->list_scientists->addItem(QString::fromStdString(currentScientist.getName()));
     }
 }
@@ -65,7 +66,6 @@ void LinkWindow::displayComputers(vector<Computer> comVec)
     for (size_t i = 0; i < comVec.size(); i++)
     {
         Computer computer = comVec[i];
-
         ui->list_computers->addItem(QString::fromStdString(computer.getName()));
     }
 }
@@ -85,12 +85,12 @@ void LinkWindow::displayLinks()
         ui->table_known_relations->setItem(row, 0, new QTableWidgetItem(sci));
         ui->table_known_relations->setItem(row, 1, new QTableWidgetItem(dash));
         ui->table_known_relations->setItem(row, 2, new QTableWidgetItem(comp));
-}
+    }
+
     ui->table_known_relations->setColumnWidth(0,150);
     ui->table_known_relations->setColumnWidth(1, 10);
     ui->table_known_relations->setColumnWidth(2, 150);
 }
-
 
 void LinkWindow::on_list_scientists_clicked()
 {

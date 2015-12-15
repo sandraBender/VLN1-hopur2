@@ -1,9 +1,10 @@
 #ifndef ADDSCI_H
 #define ADDSCI_H
-
 #include <QDialog>
 #include "service.h"
-namespace Ui {
+
+namespace Ui
+{
 class AddSci;
 }
 
@@ -18,7 +19,6 @@ public:
 
 private slots:
     void on_button_add_clicked();
-
     void on_button_cancel_clicked();
 
 private:

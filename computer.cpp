@@ -34,6 +34,7 @@ bool Computer::getBuiltOrNot()
 {
     return builtOrNot;
 }
+
 string Computer::getType()
 {
     return type;

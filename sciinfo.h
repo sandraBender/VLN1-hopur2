@@ -1,11 +1,11 @@
 #ifndef SCIINFO_H
 #define SCIINFO_H
-
 #include <QDialog>
 #include "scientist.h"
 #include "service.h"
 
-namespace Ui {
+namespace Ui
+{
 class sciinfo;
 }
 

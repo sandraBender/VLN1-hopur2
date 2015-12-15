@@ -17,15 +17,16 @@ public:
     Service();
     bool addScientist(QString name, QString yob, QString yod, QString gender);
     bool addComputer(QString name, QString buildYear, QString builtOrNot, QString type);
+    bool connect();
+    bool disconnect();
     vector<Computer> sortCom(char number);
     vector<Scientist> sortSci(char number);
     vector<Scientist> searchSci(string searchStr, char number);
     vector<Computer> searchCom(string searchStr, char number);
-    void deleteData(char number, QString name);
-    bool connect();
-    bool disconnect();
-    void addDeleteLink(string scientist, string computer, char number);
     vector<QString> getRelations(int number);
+    void deleteData(char number, QString name); 
+    void addDeleteLink(string scientist, string computer, char number);
+
 private:
     database data;
 };

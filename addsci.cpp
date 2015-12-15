@@ -30,7 +30,6 @@ bool AddSci::addscientist()
         ui->label_errorYear->setText("<span style = 'color: #DC143C' > Year of birth cannot be empty </span>");
         return false;
     }
-
     if(ui->button_alive->isChecked())
         yod = "0";
     else if(ui->button_dead->isChecked())

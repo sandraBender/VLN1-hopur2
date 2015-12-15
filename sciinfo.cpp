@@ -6,7 +6,6 @@ sciinfo::sciinfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sciinfo)
 {
-
     ui->setupUi(this);
 }
 
@@ -27,7 +26,7 @@ void sciinfo::setInfo(QString name, vector<Scientist> currentscis)
             yob = QString::number(currentscis[i].getYob());
             yod = QString::number(currentscis[i].getYod());
             tempgender = currentscis[i].getGender();
-           }
+        }
 
     QString gender = QString::fromStdString(tempgender);
     QString bornText;
@@ -54,6 +53,5 @@ void sciinfo::displaycomps(QString name)
     for(unsigned int i = 0; i < sci.size(); i++){
         if(name == sci[i])
             ui->list_related_comps->addItem(comp[i]);
-
     }
 }

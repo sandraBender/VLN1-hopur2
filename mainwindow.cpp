@@ -13,11 +13,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_button_scientist_clicked()
 {
     scientistWindow.exec();
-
 }
 
 void MainWindow::on_button_computer_clicked()

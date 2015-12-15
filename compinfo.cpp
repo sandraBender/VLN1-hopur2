@@ -13,16 +13,18 @@ void compinfo::setInfo(QString name, vector<Computer> currentcomp)
             yearBuilt = QString::number(currentcomp[i].getYearInvented());
             built = currentcomp[i].getBuiltOrNot();
             type = QString::fromStdString(currentcomp[i].getType());
-        }}
+        }
+    }
+
     QString builtText;
     if(built)
         builtText = "Built in " + yearBuilt;
     else
         builtText = "Was not built";
+
     ui->label_name->setText(name);
     ui->label_built->setText(builtText);
     ui->label_type->setText(type);
-
 }
 
 compinfo::compinfo(QWidget *parent) :

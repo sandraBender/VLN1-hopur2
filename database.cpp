@@ -11,7 +11,7 @@ bool database::getDatabase()
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "Database.sqlite";
-        db.setDatabaseName(dbName);
+    db.setDatabaseName(dbName);
 
     return db.open();
 }
@@ -179,11 +179,11 @@ void database::addDeleteLink(string scientist, string computer, char number) //A
     {
         query.prepare("DELETE FROM SciCompLink WHERE ScientistID = :scientistID AND ComputerID = :computerID;");
     }
+
     query.bindValue(":scientistID" , QString::fromStdString(scientistID));
     query.bindValue(":computerID", QString::fromStdString(computerID));
     query.exec();
     query.next();
-    //return true;
 }
 
 //Function to link Scientists and Computers
@@ -191,7 +191,6 @@ vector<QString> database::getRelations(int number)
 {
     vector<QString> vec;
     QSqlQueryModel model;
-
 
     switch (number) {
     case 1:{
@@ -201,7 +200,8 @@ vector<QString> database::getRelations(int number)
              QString nameSci = model.record(i).value("Name").toString();
              vec.push_back(nameSci);
         }
-        return vec;}
+        return vec;
+    }
     case 2:{
         model.setQuery("SELECT C.Name FROM SciCompLink SCL JOIN Computers C on C.ID = SCL.ComputerID");
         for (int i = 0; i < model.rowCount(); ++i)
@@ -209,10 +209,10 @@ vector<QString> database::getRelations(int number)
              QString nameComp = model.record(i).value("Name").toString();
              vec.push_back(nameComp);
         }
-        return vec;}
+        return vec;
+    }
     default:
         break;
-
     }
     return vec;
 }
@@ -229,7 +229,6 @@ bool database::checkScientistOrComputerExistence(string searchString, bool sciOr
         query.prepare("SELECT * FROM Computers WHERE Name = :name");
         query.bindValue(":name", QString::fromStdString(searchString));
     }
-
     query.exec();
 
     if (!query.next())

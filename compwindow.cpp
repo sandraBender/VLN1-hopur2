@@ -21,7 +21,6 @@ void CompWindow::on_button_add_new_clicked()
 {
     ui->label_Remove_success->setText("");
     addComputer.exec();
-
     displayAllComputers("");
 }
 
@@ -35,7 +34,6 @@ void CompWindow::on_line_filter_computers_textChanged()
     string searchStr = ui->line_filter_computers->text().toStdString();
     QString qSearchstr = ui->line_filter_computers->text();
     QChar c;
-
     char select ='1';
 
     if(searchStr != "")
@@ -51,8 +49,8 @@ void CompWindow::on_line_filter_computers_textChanged()
     }
 
     displayAllComputers(searchStr, select);
-
 }
+
 void CompWindow::displayAllComputers(string searchStr)
 {
     char number = '1';
@@ -61,7 +59,6 @@ void CompWindow::displayAllComputers(string searchStr)
     displayComputers(vec);
     ui->table_computers->setSortingEnabled(true);
 }
-
 
 void CompWindow::displayAllComputers(string searchStr, char number)
 {
@@ -92,7 +89,6 @@ void CompWindow::displayComputers(std::vector<Computer> compVec)
         ui->table_computers->setItem(row, 1, new QTableWidgetItem(yearBuilt));
         ui->table_computers->setItem(row, 2, new QTableWidgetItem(type));
         ui->table_computers->setColumnWidth(0,150);
-
     }
     currentlyDisplayed = compVec;
 }

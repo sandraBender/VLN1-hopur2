@@ -1,13 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include "sciwindow.h"
 #include "service.h"
 #include "compwindow.h"
 #include "linkwindow.h"
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -21,9 +21,7 @@ public:
 
 private slots:
     void on_button_scientist_clicked();
-
     void on_button_computer_clicked();
-
     void on_button_relation_clicked();
 
 private:

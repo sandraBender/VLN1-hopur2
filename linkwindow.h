@@ -1,12 +1,11 @@
 #ifndef LINKWINDOW_H
 #define LINKWINDOW_H
-
 #include <QDialog>
 #include <vector>
 #include "service.h"
 
-
-namespace Ui {
+namespace Ui
+{
 class LinkWindow;
 }
 
@@ -20,15 +19,10 @@ public:
 
 private slots:
     void on_Button_link_clicked();
-
     void on_list_scientists_clicked();
-
     void on_list_computers_clicked();
-
     void on_table_known_relations_clicked();
-
     void on_button_close_clicked();
-
     void on_button_remove_link_clicked();
     
 private:
