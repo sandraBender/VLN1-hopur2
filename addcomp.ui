@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>290</width>
-    <height>319</height>
+    <height>289</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -125,18 +125,22 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="button_close">
-     <property name="text">
-      <string>Close</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="button_add">
-     <property name="text">
-      <string>Add</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QPushButton" name="button_add">
+       <property name="text">
+        <string>Add</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_close">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLabel" name="label_addsuccess">
