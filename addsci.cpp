@@ -51,12 +51,6 @@ bool AddSci::addscientist()
         yod = ui->line_yod->text();
     }
 
-    if(ui->button_dead->isChecked() && yod.isEmpty())
-    {
-        ui->label_erroryod->setText("<span style = 'color: #DC143C' > Year of death cannot be empty </span>");
-        error = true;
-    }
-
     return serv.addScientist(name, yob, yod, gender);
 }
 
@@ -74,6 +68,7 @@ void AddSci::on_button_add_clicked()
         SciWin.displayAllScientists("",'1');
         ui->line_name->clear();
         ui->line_yob->clear();
+        ui->line_yod->clear();
     }
 }
 
