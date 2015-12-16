@@ -29,3 +29,8 @@ void MainWindow::on_button_relation_clicked()
     LinkWindow link;
     link.exec();
 }
+
+void MainWindow::on_button_quit_clicked()
+{
+    serv.disconnect();
+}

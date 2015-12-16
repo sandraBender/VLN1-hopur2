@@ -24,6 +24,8 @@ private slots:
     void on_button_computer_clicked();
     void on_button_relation_clicked();
 
+    void on_button_quit_clicked();
+
 private:
     Ui::MainWindow *ui;
     SciWindow scientistWindow;
