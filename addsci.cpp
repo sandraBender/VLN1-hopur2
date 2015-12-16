@@ -82,5 +82,8 @@ void AddSci::on_button_cancel_clicked()
     ui->label_errorName->clear();
     ui->label_erroryob->clear();
     ui->label_erroryod->clear();
+    ui->line_name->clear();
+    ui->line_yob->clear();
+    ui->line_yod->clear();
     close();
 }

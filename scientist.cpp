@@ -48,7 +48,7 @@ int Scientist::setAge(int yb, int yd)
     if (yd == 0)
     {
         time_t Time = time(NULL);
-         struct tm *theTime = localtime(&Time);
+        struct tm *theTime = localtime(&Time);
         yd = theTime->tm_year + 1900;
     }
 

@@ -18,6 +18,8 @@ AddComp::~AddComp()
 
 void AddComp::on_button_close_clicked()
 {
+    ui->line_name->clear();
+    ui->line_build_year->clear();
     close();
 }
 
