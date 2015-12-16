@@ -102,7 +102,6 @@ void SciWindow::on_button_remove_scientist_clicked()
    QString sciName = ui->table_scientist->item(ui->table_scientist->currentIndex().row(), 0)->text();
    serv.deleteData('1', sciName);
    ui->label_successRemove->setText("Scientist was successfully removed");
-   ui->label_successRemove->killTimer(3);
    ui->filter_scientists->clear();
    displayAllScientists("");
    ui->button_remove_scientist->setEnabled(false);
